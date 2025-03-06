@@ -11,7 +11,10 @@ window.addEventListener("load", () => {
     ease: "power2.out"
   });
   gsap.from(".bongocat", {
-
+    y: 500,
+    duration: 1 ,
+    delay: 0.7,
+    ease: "elastic.out(1, 0.5)"
   })
   // GSAP Home Title Animation
   gsap.from("#home h1", {
@@ -70,23 +73,23 @@ window.addEventListener("load", () => {
 
     let scrollIndex = 0;
 
-    nextBtn.addEventListener("click", () => {
-      if (scrollIndex < 2) {
-        scrollIndex++;
+    // nextBtn.addEventListener("click", () => {
+    //   if (scrollIndex < 2) {
+    //     scrollIndex++;
 
-    const panelWidth = window.innerWidth;
-        scrollContainer.scrollTo({ left: scrollIndex * panelWidth, behavior: "smooth" });
-      }
-    });
+    // const panelWidth = window.innerWidth;
+    //     scrollContainer.scrollTo({ left: scrollIndex * panelWidth, behavior: "smooth" });
+    //   }
+    // });
 
-    prevBtn.addEventListener("click", () => {
-      if (scrollIndex > 0) {
-        scrollIndex--;
+    // prevBtn.addEventListener("click", () => {
+    //   if (scrollIndex > 0) {
+    //     scrollIndex--;
 
-    const panelWidth = window.innerWidth;
-        scrollContainer.scrollTo({ left: scrollIndex * panelWidth, behavior: "smooth" });
-      }
-    });
+    // const panelWidth = window.innerWidth;
+    //     scrollContainer.scrollTo({ left: scrollIndex * panelWidth, behavior: "smooth" });
+    //   }
+    // });
   
   
 
@@ -142,39 +145,39 @@ window.addEventListener("load", () => {
   });
 });
 
-startCountdown(new Date(2025, 2, 18, 0, 0, 0).getTime());
+startCountdown(new Date(2025, 2, 21, 9, 0, 0).getTime());
 
-// Enable horizontal scrolling with mouse drag
-const scrollContainer = document.querySelector(".overflow-x-auto");
+// // Enable horizontal scrolling with mouse drag
+// const scrollContainer = document.querySelector(".overflow-x-auto");
 
-let isDown = false;
-let startX;
-let scrollLeft;
+// let isDown = false;
+// let startX;
+// let scrollLeft;
 
-scrollContainer.addEventListener("mousedown", (e) => {
-  isDown = true;
-  scrollContainer.classList.add("active");
-  startX = e.pageX - scrollContainer.offsetLeft;
-  scrollLeft = scrollContainer.scrollLeft;
-});
+// scrollContainer.addEventListener("mousedown", (e) => {
+//   isDown = true;
+//   scrollContainer.classList.add("active");
+//   startX = e.pageX - scrollContainer.offsetLeft;
+//   scrollLeft = scrollContainer.scrollLeft;
+// });
 
-scrollContainer.addEventListener("mouseleave", () => {
-  isDown = false;
-  scrollContainer.classList.remove("active");
-});
+// scrollContainer.addEventListener("mouseleave", () => {
+//   isDown = false;
+//   scrollContainer.classList.remove("active");
+// });
 
-scrollContainer.addEventListener("mouseup", () => {
-  isDown = false;
-  scrollContainer.classList.remove("active");
-});
+// scrollContainer.addEventListener("mouseup", () => {
+//   isDown = false;
+//   scrollContainer.classList.remove("active");
+// });
 
-scrollContainer.addEventListener("mousemove", (e) => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - scrollContainer.offsetLeft;
-  const walk = (x - startX) * 2; // Multiply to increase speed
-  scrollContainer.scrollLeft = scrollLeft - walk;
-});
+// scrollContainer.addEventListener("mousemove", (e) => {
+//   if (!isDown) return;
+//   e.preventDefault();
+//   const x = e.pageX - scrollContainer.offsetLeft;
+//   const walk = (x - startX) * 2; // Multiply to increase speed
+//   scrollContainer.scrollLeft = scrollLeft - walk;
+// });
 
 
 function startCountdown(targetDate) {
@@ -183,7 +186,7 @@ function startCountdown(targetDate) {
       const distance = targetDate - now;
       
       if (distance < 0) {
-          document.getElementById("countdown").innerHTML = "Registrations Have Closed! 😔";
+          document.getElementById("countdown").innerHTML = "ITS OVER! you will have to wait for PRAYAS 2k26 now! 😔";
           clearInterval(interval);
           return;
       }
@@ -201,3 +204,19 @@ function startCountdown(targetDate) {
   const interval = setInterval(updateCountdown, 1000);
 }
 
+// document.addEventListener("scroll", () => {
+//   const section = document.getElementById("paper-presentation");
+//   const navButtons = document.getElementById("nav-buttons");
+
+//   if (section) {
+//     const rect = section.getBoundingClientRect();
+//     const sectionTop = rect.top + window.scrollY;
+//     const sectionBottom = rect.bottom + window.scrollY;
+//     const middleScreen = window.innerHeight / 2;
+
+//     if (window.scrollY + middleScreen >= sectionTop && window.scrollY + middleScreen <= sectionBottom) {
+//       navButtons.style.top = `${window.scrollY + middleScreen}px`;
+//       console.log('')
+//     }
+//   }
+// });
