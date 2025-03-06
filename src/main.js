@@ -142,7 +142,7 @@ window.addEventListener("load", () => {
   });
 });
 
-startCountdown(new Date(2025, 2, 15, 0, 0, 0).getTime());
+startCountdown(new Date(2025, 2, 18, 0, 0, 0).getTime());
 
 // Enable horizontal scrolling with mouse drag
 const scrollContainer = document.querySelector(".overflow-x-auto");
