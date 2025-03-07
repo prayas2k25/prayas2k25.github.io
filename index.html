@@ -14,6 +14,7 @@
   </head>
 
   <body>
+    <div id="loader" class="fixed w-full h-full bg-gray-800 z-60 text-8xl text-center pt-28">...</div>
     <!-- Header -->
     <header
       class="fixed top-0 w-full bg-black p-4 flex justify-between items-center z-50"
@@ -99,16 +100,6 @@
       </nav>
     </header>
 
-    <!-- JavaScript for Mobile Menu -->
-    <script>
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      mobileMenu.classList.toggle("hidden");
-
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-    </script>
 
     <!-- Main Content -->
     <main

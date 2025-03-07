@@ -61,6 +61,8 @@
     --text-6xl--line-height: 1;
     --text-7xl: 4.5rem;
     --text-7xl--line-height: 1;
+    --text-8xl: 6rem;
+    --text-8xl--line-height: 1;
     --text-9xl: 8rem;
     --text-9xl--line-height: 1;
     --font-weight-medium: 500;
@@ -260,8 +262,14 @@
   .z-10 {
     z-index: 10;
   }
+  .z-20 {
+    z-index: 20;
+  }
   .z-50 {
     z-index: 50;
+  }
+  .z-60 {
+    z-index: 60;
   }
   .container {
     width: 100%;
@@ -371,6 +379,9 @@
   .h-80 {
     height: calc(var(--spacing) * 80);
   }
+  .h-full {
+    height: 100%;
+  }
   .min-h-\[300px\] {
     min-height: 300px;
   }
@@ -415,6 +426,9 @@
   }
   .border-collapse {
     border-collapse: collapse;
+  }
+  .origin-center {
+    transform-origin: center;
   }
   .resize {
     resize: both;
@@ -642,6 +656,15 @@
   .py-20 {
     padding-block: calc(var(--spacing) * 20);
   }
+  .py-96 {
+    padding-block: calc(var(--spacing) * 96);
+  }
+  .py-\[50\%\] {
+    padding-block: 50%;
+  }
+  .pt-28 {
+    padding-top: calc(var(--spacing) * 28);
+  }
   .pt-32 {
     padding-top: calc(var(--spacing) * 32);
   }
@@ -650,6 +673,9 @@
   }
   .pt-40 {
     padding-top: calc(var(--spacing) * 40);
+  }
+  .pt-\[50\%\] {
+    padding-top: 50%;
   }
   .pb-4 {
     padding-bottom: calc(var(--spacing) * 4);
@@ -665,6 +691,9 @@
   }
   .text-start {
     text-align: start;
+  }
+  .align-middle {
+    vertical-align: middle;
   }
   .text-2xl {
     font-size: var(--text-2xl);
@@ -685,6 +714,10 @@
   .text-6xl {
     font-size: var(--text-6xl);
     line-height: var(--tw-leading, var(--text-6xl--line-height));
+  }
+  .text-8xl {
+    font-size: var(--text-8xl);
+    line-height: var(--tw-leading, var(--text-8xl--line-height));
   }
   .text-base {
     font-size: var(--text-base);
@@ -749,9 +782,6 @@
   }
   .text-gray-500 {
     color: var(--color-gray-500);
-  }
-  .text-gray-900 {
-    color: var(--color-gray-900);
   }
   .text-gray-950 {
     color: var(--color-gray-950);
@@ -901,11 +931,6 @@
   .sm\:w-72 {
     @media (width >= 40rem) {
       width: calc(var(--spacing) * 72);
-    }
-  }
-  .sm\:flex-row {
-    @media (width >= 40rem) {
-      flex-direction: row;
     }
   }
   .sm\:gap-4 {
