@@ -22,7 +22,6 @@
     --color-indigo-200: oklch(0.87 0.065 274.039);
     --color-indigo-500: oklch(0.585 0.233 277.117);
     --color-violet-200: oklch(0.894 0.057 293.283);
-    --color-violet-500: oklch(0.606 0.25 292.717);
     --color-purple-50: oklch(0.977 0.014 308.299);
     --color-purple-100: oklch(0.946 0.033 307.174);
     --color-purple-300: oklch(0.827 0.119 306.383);
@@ -353,6 +352,18 @@
   }
   .ml-5 {
     margin-left: calc(var(--spacing) * 5);
+  }
+  .ml-10 {
+    margin-left: calc(var(--spacing) * 10);
+  }
+  .ml-14 {
+    margin-left: calc(var(--spacing) * 14);
+  }
+  .ml-24 {
+    margin-left: calc(var(--spacing) * 24);
+  }
+  .ml-28 {
+    margin-left: calc(var(--spacing) * 28);
   }
   .ml-48 {
     margin-left: calc(var(--spacing) * 48);
@@ -787,9 +798,6 @@
   }
   .text-violet-200 {
     color: var(--color-violet-200);
-  }
-  .text-violet-500 {
-    color: var(--color-violet-500);
   }
   .text-white {
     color: var(--color-white);
