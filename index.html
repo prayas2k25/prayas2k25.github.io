@@ -1,177 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- <link rel="stylesheet" href="./src/style.css" /> -->
+    <link href="./src/output.css" rel="stylesheet" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <!-- <link rel="stylesheet" href="./src/style.css" /> -->
-  <link href="./src/output.css" rel="stylesheet" />
+    <title>Prayas 2K25</title>
+  </head>
 
-  <title>Prayas 2K25</title>
-</head>
+  <body>
+    <div
+      id="loader"
+      class="fixed w-full h-full bg-gray-800 z-60 text-8xl text-center pt-28"
+    >
+      ...
+    </div>
+    <!-- Header -->
+    <header
+      class="fixed top-0 w-full bg-black p-4 flex justify-between items-center z-50"
+    >
+      <!-- Logo -->
+      <img src="./public/logo.png" class="w-40 sm:w-56" />
 
-<body>
-  <div id="loader" class="fixed w-full h-full bg-gray-800 z-60 text-8xl text-center pt-28">
-    ...
-  </div>
-  <!-- Header -->
-  <header class="fixed top-0 w-full bg-black p-4 flex justify-between items-center z-50">
-    <!-- Logo -->
-    <img src="./public/logo.png" class="w-40 sm:w-56" />
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-6 mr-10">
+        <button
+          data-target="#home"
+          class="nav-btn hover:bg-gray-600 font-bold px-4 py-2 rounded-md"
+        >
+          Home
+        </button>
+        <button
+          data-target="#events"
+          class="nav-btn hover:bg-gray-600 font-bold px-4 py-2 rounded-md"
+        >
+          Events
+        </button>
+        <button
+          data-target="#about-us"
+          class="nav-btn hover:bg-gray-600 font-bold px-4 py-2 rounded-md"
+        >
+          About Us
+        </button>
+        <button
+          data-target="footer"
+          class="nav-btn hover:bg-gray-600 font-bold px-4 py-2 rounded-md"
+        >
+          Contact Us
+        </button>
+      </nav>
 
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex space-x-6 mr-10">
-      <button data-target="#home" class="nav-btn hover:bg-gray-600 font-bold px-4 py-2 rounded-md">
-        Home
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+        <svg
+          class="w-8 h-8"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
       </button>
-      <button data-target="#events" class="nav-btn hover:bg-gray-600 font-bold px-4 py-2 rounded-md">
-        Events
-      </button>
-      <button data-target="#about-us" class="nav-btn hover:bg-gray-600 font-bold px-4 py-2 rounded-md">
-        About Us
-      </button>
-      <button data-target="footer" class="nav-btn hover:bg-gray-600 font-bold px-4 py-2 rounded-md">
-        Contact Us
-      </button>
-    </nav>
 
-    <!-- Mobile Menu Button -->
-    <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
+      <!-- Mobile Menu -->
+      <nav
+        id="mobile-menu"
+        class="absolute top-16 left-0 w-full bg-black flex flex-col space-y-4 p-6 items-center md:hidden"
+      >
+        <button
+          data-target="#home"
+          class="nav-btn hover:bg-gray-600 font-bold px-6 py-3 rounded-md w-full text-center"
+        >
+          Home
+        </button>
+        <button
+          data-target="#events"
+          class="nav-btn hover:bg-gray-600 font-bold px-6 py-3 rounded-md w-full text-center"
+        >
+          Events
+        </button>
+        <button
+          data-target="#about-us"
+          class="nav-btn hover:bg-gray-600 font-bold px-6 py-3 rounded-md w-full text-center"
+        >
+          About Us
+        </button>
+        <button
+          data-target="footer"
+          class="nav-btn hover:bg-gray-600 font-bold px-6 py-3 rounded-md w-full text-center"
+        >
+          Contact Us
+        </button>
+      </nav>
+    </header>
 
-    <!-- Mobile Menu -->
-    <nav id="mobile-menu"
-      class="absolute top-16 left-0 w-full bg-black flex flex-col space-y-4 p-6 items-center md:hidden">
-      <button data-target="#home" class="nav-btn hover:bg-gray-600 font-bold px-6 py-3 rounded-md w-full text-center">
-        Home
-      </button>
-      <button data-target="#events" class="nav-btn hover:bg-gray-600 font-bold px-6 py-3 rounded-md w-full text-center">
-        Events
-      </button>
-      <button data-target="#about-us"
-        class="nav-btn hover:bg-gray-600 font-bold px-6 py-3 rounded-md w-full text-center">
-        About Us
-      </button>
-      <button data-target="footer" class="nav-btn hover:bg-gray-600 font-bold px-6 py-3 rounded-md w-full text-center">
-        Contact Us
-      </button>
-    </nav>
-  </header>
+    <!-- Main Content -->
+    <main
+      id="main"
+      class="pt-40 w-full min-w-full text-purple-100 overflow-x-hidden bg-gradient-to-br from-cyan-950 to-black"
+    >
+      <section id="home" class="w-full flex flex-col px-6 md:px-10 pt-32">
+        <h1 class="text-5xl md:text-7xl font-extrabold text-indigo-200">
+          WE ARE BACK!
+        </h1>
+        <div
+          id="home-title"
+          class="text-6xl md:text-9xl font-extrabold text-amber-100"
+        >
+          PRAYAS 2K25
+        </div>
+        <p class="anim text-xl md:text-2xl font-extrabold">
+          Government Polytechnic, Amravati's Technical Event!
+        </p>
+        <p class="text-xl md:text-2xl font-extrabold">March 21st 2025</p>
 
-  <!-- Main Content -->
-  <main id="main"
-    class="pt-40 w-full min-w-full text-purple-100 overflow-x-hidden bg-gradient-to-br from-cyan-950 to-black">
-    <section id="home" class="w-full flex flex-col px-6 md:px-10 pt-32">
-      <h1 class="text-5xl md:text-7xl font-extrabold text-indigo-200">
-        WE ARE BACK!
-      </h1>
-      <div id="home-title" class="text-6xl md:text-9xl font-extrabold text-amber-100">
-        PRAYAS 2K25
-      </div>
-      <p class="anim text-xl md:text-2xl font-extrabold">
-        Government Polytechnic, Amravati's Technical Event!
-      </p>
-      <p class="text-xl md:text-2xl font-extrabold">March 21st 2025</p>
-
-      <!-- Bongo Cat (adjusts for smaller screens) -->
-      <div class="bongocat absolute right-24 top-2 hidden 2xl:block">
-        <img src="./public/bongocat.gif" class="w-64" alt="" />
-      </div>
-
-      <!-- About Section -->
-      <div class="flex flex-col lg:flex-row items-center justify-center mt-20 lg:mt-36 w-full">
-        <div class="anim text-2xl md:text-4xl font-extrabold w-full lg:w-3/5 text-center lg:text-left">
-          <p>About The Event</p>
-          <p class="anim mt-5 p-4 md:p-8 text-lg md:text-xl font-medium bg-gray-900 text-white rounded-xl shadow-lg">
-            After 6 years, PRAYAS is back—bigger, bolder, and more fun than
-            ever! 🚀 We've lined up thrilling competitions just. for. you!
-            <br /><br />
-            Organized by Government Polytechnic, Amravati, PRAYAS 2K25 is a
-            state-level technical fest where innovation meets competition.
-            Whether you're a coding maniac, a quiz whiz, or a circuit-solving
-            pro, there's something for everyone.
-            <br /><br />
-            The Legacy Returns! PRAYAS has always been a hub of talent,
-            innovation, and technical brilliance. After 2019, it was put on
-            hold due to the pandemic. But now, it's back!
-            <br /><br />
-            Are you ready to take on the challenge? Be there, make your
-            PRAYAS, and claim your victory! 🔥
-          </p>
+        <!-- Bongo Cat (adjusts for smaller screens) -->
+        <div class="bongocat absolute right-24 top-2 hidden 2xl:block">
+          <img src="./public/bongocat.gif" class="w-64" alt="" />
         </div>
 
-        <!-- Event Info (Stacked on small screens) -->
-        <div class="w-full lg:w-2/5 text-center lg:text-left mt-10 lg:ml-10 lg:mt-0">
-          <p class="anim text-2xl font-bold text-amber-100">Where?</p>
-          <p class="anim text-xl">Government Polytechnic, Amravati</p>
-          <p class="anim text-2xl mt-4 font-bold text-amber-100">When?</p>
-          <p class="anim text-xl">21 March 2025</p>
-          <p class="anim text-2xl mt-4 font-bold text-amber-100">
-            When are registrations ending?
-          </p>
-          <p class="anim text-xl">20 March 2025</p>
+        <!-- About Section -->
+        <div
+          class="flex flex-col lg:flex-row items-center justify-center mt-20 lg:mt-36 w-full"
+        >
+          <div
+            class="anim text-2xl md:text-4xl font-extrabold w-full lg:w-3/5 text-center lg:text-left"
+          >
+            <p>About The Event</p>
+            <p
+              class="anim mt-5 p-4 md:p-8 text-lg md:text-xl font-medium bg-gray-900 text-white rounded-xl shadow-lg"
+            >
+              After 6 years, PRAYAS is back—bigger, bolder, and more fun than
+              ever! 🚀 We've lined up thrilling competitions just. for. you!
+              <br /><br />
+              Organized by Government Polytechnic, Amravati, PRAYAS 2K25 is a
+              state-level technical fest where innovation meets competition.
+              Whether you're a coding maniac, a quiz whiz, or a circuit-solving
+              pro, there's something for everyone.
+              <br /><br />
+              The Legacy Returns! PRAYAS has always been a hub of talent,
+              innovation, and technical brilliance. After 2019, it was put on
+              hold due to the pandemic. But now, it's back!
+              <br /><br />
+              Are you ready to take on the challenge? Be there, make your
+              PRAYAS, and claim your victory! 🔥
+            </p>
+          </div>
+
+          <!-- Event Info (Stacked on small screens) -->
+          <div
+            class="w-full lg:w-2/5 text-center lg:text-left mt-10 lg:ml-10 lg:mt-0"
+          >
+            <p class="anim text-2xl font-bold text-amber-100">Where?</p>
+            <p class="anim text-xl">Government Polytechnic, Amravati</p>
+            <p class="anim text-2xl mt-4 font-bold text-amber-100">When?</p>
+            <p class="anim text-xl">21 March 2025</p>
+            <p class="anim text-2xl mt-4 font-bold text-amber-100">
+              When are registrations ending?
+            </p>
+            <p class="anim text-xl">20 March 2025</p>
+          </div>
         </div>
-      </div>
 
-      <!-- Countdown Timer -->
-      <div class="anim text-center text-full md:text-4xl font-semibold mt-32">
-        <div>Days Remaining Until PRAYAS 2k25:</div>
-        <div class="anim countdown text-5xl md:text-6xl mt-6 font-extrabold" id="countdown"></div>
-      </div>
-    </section>
+        <!-- Countdown Timer -->
+        <div class="anim text-center text-full md:text-4xl font-semibold mt-32">
+          <div>Days Remaining Until PRAYAS 2k25:</div>
+          <div
+            class="anim countdown text-5xl md:text-6xl mt-6 font-extrabold"
+            id="countdown"
+          ></div>
+        </div>
+      </section>
 
-    <div class="mt-36"></div>
-    <hr class="ml-4 md:ml-10 mr-4 md:mr-10" />
+      <div class="mt-36"></div>
+      <hr class="ml-4 md:ml-10 mr-4 md:mr-10" />
 
-    <section id="events" class="w-full text-center pt-32">
-      <h1 class="anim text-5xl md:text-7xl font-extrabold text-amber-100">
-        Events
-      </h1>
+      <section id="events" class="w-full text-center pt-32">
+        <h1 class="anim text-5xl md:text-7xl font-extrabold text-amber-100">
+          Events
+        </h1>
 
-      <!-- Event Buttons (Now Responsive & Spaced Evenly) -->
-      <div class="anim flex flex-wrap justify-center gap-4 md:gap-6 p-4 mt-10 w-full">
-        <button data-target="#paper-presentation"
-          class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-base md:text-xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300">
-          <span class="relative z-10 text-center">TECHNICAL PAPER PRESENTATION</span>
-        </button>
+        <!-- Event Buttons (Now Responsive & Spaced Evenly) -->
+        <div
+          class="anim flex flex-wrap justify-center gap-4 md:gap-6 p-4 mt-10 w-full"
+        >
+          <button
+            data-target="#paper-presentation"
+            class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-base md:text-xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300"
+          >
+            <span class="relative z-10 text-center"
+              >TECHNICAL PAPER PRESENTATION</span
+            >
+          </button>
 
-        <button data-target="#code-quest"
-          class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300">
-          <span class="relative z-10 text-center">CODEQUEST</span>
-        </button>
+          <button
+            data-target="#code-quest"
+            class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300"
+          >
+            <span class="relative z-10 text-center">CODEQUEST</span>
+          </button>
 
-        <button data-target="#quiz-competition"
-          class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300">
-          <span class="relative z-10 text-center">QUIZSPARK</span>
-        </button>
+          <button
+            data-target="#quiz-competition"
+            class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300"
+          >
+            <span class="relative z-10 text-center">QUIZSPARK</span>
+          </button>
 
-        <button data-target="#robo-race"
-          class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300">
-          <span class="relative z-10 text-center">ROBODRIFT</span>
-        </button>
+          <button
+            data-target="#robo-race"
+            class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300"
+          >
+            <span class="relative z-10 text-center">ROBODRIFT</span>
+          </button>
 
-        <button data-target="#circuit-fixer"
-          class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300">
-          <span class="relative z-10 text-center">CIRCUIT FIXER</span>
-        </button>
+          <button
+            data-target="#circuit-fixer"
+            class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300"
+          >
+            <span class="relative z-10 text-center">CIRCUIT FIXER</span>
+          </button>
 
-        <button data-target="#lan-gaming"
-          class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300">
-          <span class="relative z-10 text-center">E-SPORTS</span>
-        </button>
+          <button
+            data-target="#lan-gaming"
+            class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300"
+          >
+            <span class="relative z-10 text-center">E-SPORTS</span>
+          </button>
 
-        <button data-target="#poster-competition"
-          class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-base md:text-xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300">
-          <span class="relative z-10 text-center">TECHNICAL POSTER COMPETITION</span>
-        </button>
-      </div>
-    </section>
+          <button
+            data-target="#poster-competition"
+            class="nav-btn relative w-52 md:w-64 h-32 md:h-40 p-5 rounded-2xl border-4 border-cyan-100 flex items-center justify-center text-white font-bold text-base md:text-xl shadow-[0_0_10px_#00ffff] overflow-hidden group hover:scale-110 transition-all duration-300"
+          >
+            <span class="relative z-10 text-center"
+              >TECHNICAL POSTER COMPETITION</span
+            >
+          </button>
+        </div>
+      </section>
 
-    <!-- 
+      <!-- 
     <section class="w-full py-20 flex-col items-center bg-gray-950 text-white hidden md:flex">
       <h1 class="text-5xl font-extrabold text-amber-300 mb-10 text-center">Event Schedule</h1>
 
@@ -262,19 +341,24 @@
       </div>
     </section> -->
 
-    <section id="paper-presentation" class="w-full pt-32 px-6 lg:px-16">
-      <h1 class="anim text-4xl md:text-5xl font-extrabold text-amber-100 text-center md:text-left">
-        TECHNICAL PAPER PRESENTATION
-      </h1>
-      <p class="anim text-xl md:text-3xl font-extrabold text-indigo-200 mb-6 md:mb-10 text-center md:text-left">
-        Showcase Your Research & Ideas!
-      </p>
+      <section id="paper-presentation" class="w-full pt-32 px-6 lg:px-16">
+        <h1
+          class="anim text-4xl md:text-5xl font-extrabold text-amber-100 text-center md:text-left"
+        >
+          TECHNICAL PAPER PRESENTATION
+        </h1>
+        <p
+          class="anim text-xl md:text-3xl font-extrabold text-indigo-200 mb-6 md:mb-10 text-center md:text-left"
+        >
+          Showcase Your Research & Ideas!
+        </p>
 
-      <!-- Scroll Container -->
-      <div
-        class="w-full bg-gray-900 text-white border-4 border-yellow-200 rounded-2xl p-6 md:p-10 flex flex-col justify-between gap-6 md:gap-12 shadow-xl">
-        <div class="flex-1 space-y-6 md:space-y-8">
-          <!-- <div class=" ">
+        <!-- Scroll Container -->
+        <div
+          class="w-full bg-gray-900 text-white border-4 border-yellow-200 rounded-2xl p-6 md:p-10 flex flex-col justify-between gap-6 md:gap-12 shadow-xl"
+        >
+          <div class="flex-1 space-y-6 md:space-y-8">
+            <!-- <div class=" ">
               <p class="text-xl md:text-2xl font-extrabold leading-relaxed">
                 Group A: CS/IT & AI/DS
               </p>
@@ -286,1073 +370,1278 @@
               </p>
             </div> -->
 
-          <!-- Time & Venue -->
-          <div class="">
-            <p class="text-2xl font-bold text-purple-300">📅 Time & Venue:</p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li>
-                <span class="font-bold text-purple-300">Time:</span> 10 AM - 3
-                PM
-              </li>
-              <li>
-                <span class="font-bold text-purple-300">Venue:</span> Multiple
-                (Refer below)
-              </li>
-            </ul>
-          </div>
+            <!-- Time & Venue -->
+            <div class="">
+              <p class="text-2xl font-bold text-purple-300">📅 Time & Venue:</p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>
+                  <span class="font-bold text-purple-300">Time:</span> 10 AM - 3
+                  PM
+                </li>
+                <li>
+                  <span class="font-bold text-purple-300">Venue:</span> Multiple
+                  (Refer below)
+                </li>
+              </ul>
+            </div>
 
-          <!-- Entry Fee & Maximum Entries -->
-          <div class="text-lg">
-            <p>
-              <span class="font-bold text-purple-300">💰 Entry Fee:</span>
-              ₹200 per team (Max 2 members)
-            </p>
-            <p>
-              <span class="font-bold text-purple-300">🔢 Max Entries:</span>
-              20 teams per group
-            </p>
-          </div>
+            <!-- Entry Fee & Maximum Entries -->
+            <div class="text-lg">
+              <p>
+                <span class="font-bold text-purple-300">💰 Entry Fee:</span>
+                ₹200 per team (Max 2 members)
+              </p>
+              <p>
+                <span class="font-bold text-purple-300">🔢 Max Entries:</span>
+                20 teams per group
+              </p>
+            </div>
 
-          <!-- Presentation Format -->
+            <!-- Presentation Format -->
             <p class="text-2xl font-bold text-purple-300">
-              📝 Presentation Format: <a target="_blank" class="text-amber-300 font-extrabold" href="./public/prayas paper format.pdf">CLICK HERE</a>
+              📝 Presentation Format:
+              <a
+                target="_blank"
+                class="text-amber-300 font-extrabold"
+                href="./public/prayas paper format.pdf"
+                >CLICK HERE</a
+              >
             </p>
-            
-          <!-- Prizes -->
-          <div>
-            <p class="text-2xl font-bold text-purple-300">🏅 Prizes:</p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li>🥇 <b>Winner:</b> ₹3000 + Certificate</li>
-              <li>🥈 <b>Runner-up:</b> ₹1500 + Certificate</li>
-            </ul>
-            <p class="text-lg pl-6 text-green-300 font-semibold">
-              🎖 Certificate of Participation for all teams!
-            </p>
-          </div>
-        </div>
 
-        <div class="flex flex-col w-full justify-between">
-          <div class="p-4" style="border-bottom: solid">
-            <div class="mb-3">
-              <p class="text-2xl font-bold mb-6">GROUP A: CS/IT & AI/DS</p>
-              <p class="text-xl font-bold text-purple-300">
-                Venue:
-                <span class="text-white">Seminar Hall (IT Dept.)</span>
+            <!-- Prizes -->
+            <div>
+              <p class="text-2xl font-bold text-purple-300">🏅 Prizes:</p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>🥇 <b>Winner:</b> ₹3000 + Certificate</li>
+                <li>🥈 <b>Runner-up:</b> ₹1500 + Certificate</li>
+              </ul>
+              <p class="text-lg pl-6 text-green-300 font-semibold">
+                🎖 Certificate of Participation for all teams!
               </p>
             </div>
+          </div>
 
-            <div class="flex-1 space-y-2 mb-3">
-              <p class="text-xl font-bold text-purple-300">
-                Suggested Topics for Presentation:
+          <div class="flex flex-col w-full justify-between">
+            <div class="p-4" style="border-bottom: solid">
+              <div class="mb-3">
+                <p class="text-2xl font-bold mb-6">GROUP A: CS/IT & AI/DS</p>
+                <p class="text-xl font-bold text-purple-300">
+                  Venue:
+                  <span class="text-white">Seminar Hall (IT Dept.)</span>
+                </p>
+              </div>
+
+              <div class="flex-1 space-y-2 mb-3">
+                <p class="text-xl font-bold text-purple-300">
+                  Suggested Topics for Presentation:
+                </p>
+                <ul class="list-none pl-6 text-lg space-y-2">
+                  <li>🤖 <b>Artificial Intelligence</b></li>
+                  <li>🛡️ <b>Cybersecurity & Ethical Hacking</b></li>
+                  <li>
+                    🌐 <b>Emerging Technologies:</b> Blockchain, IoT & Cloud
+                    Computing
+                  </li>
+                  <li>
+                    📡
+                    <b>Advancements in Wireless Communication & Networking</b>
+                  </li>
+                  <li>
+                    🌱 <b>Sustainable & Green Computing in Modern Technology</b>
+                  </li>
+                  <li>🛠️ <b>Any Other Disciplinary Topics</b></li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="text-xl font-bold text-purple-300">Coordinators:</p>
+                <p class="text-lg pl-6 text-white font-bold">
+                  📞 Apeksha Kene: 95290 54451
+                </p>
+                <p class="text-lg pl-6 text-white font-bold">
+                  📞 Abhilasha Trikane: 94236 60650
+                </p>
+              </div>
+
+              <!-- Button Wrapper for Centering -->
+              <div class="flex justify-center mt-4">
+                <a
+                  target="_blank"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfLUcmaYAGxghA-0HHCYZBB_G7L4ptbD9CQHMpN3TT-v635IA/viewform?usp=header"
+                  class="text-2xl font-bold text-amber-200 border-amber-200 border-2 px-6 py-3 rounded-2xl transition duration-300 hover:text-black hover:scale-110 hover:bg-yellow-200"
+                >
+                  🚀 REGISTER NOW!!!
+                </a>
+              </div>
+            </div>
+
+            <div class="p-4" style="border-bottom: solid">
+              <div class="mb-3">
+                <p class="text-2xl font-bold mb-6">
+                  GROUP B: Electronic / Electrical
+                </p>
+                <p class="text-xl font-bold text-purple-300">
+                  Venue:
+                  <span class="text-white">Seminar hall (EXTC dept)</span>
+                </p>
+              </div>
+
+              <div class="flex-1 space-y-2 mb-3">
+                <p class="text-xl font-bold text-purple-300">
+                  Suggested Topics for Presentation:
+                </p>
+                <ul class="list-none pl-6 text-lg space-y-2">
+                  <li>
+                    ♻️ <b>Electronic Waste Management:</b> Sustainable solutions
+                    for e-waste.
+                  </li>
+                  <li>
+                    📶 <b>5G and Beyond:</b> Advancements, applications, and
+                    future scope.
+                  </li>
+                  <li>
+                    🤖 <b>AI in Telecommunication:</b> Enhancing network
+                    efficiency and security.
+                  </li>
+                  <li>
+                    💡 <b>Li-Fi Technology:</b> High-speed data transmission
+                    using light.
+                  </li>
+                  <li>
+                    ⚡ <b>Smart Grid Technology:</b> Exploring its future
+                    potential.
+                  </li>
+                  <li>
+                    🛠️ <b>Fault Detection & Self-Healing Grids:</b> Enhancing
+                    power reliability.
+                  </li>
+                  <li>
+                    🔋 <b>Battery Management Systems:</b> Optimizing performance
+                    for EVs.
+                  </li>
+                  <li>
+                    ☀️ <b>Solar-Powered EV Charging Stations:</b> A step towards
+                    sustainability.
+                  </li>
+                  <li>🛠️ <b>Any Other Disciplinary Topics</b></li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="text-xl font-bold text-purple-300">Coordinators:</p>
+                <p class="text-lg pl-6 text-white font-bold">
+                  📞 Abhijeet ingale: 70383 29064
+                </p>
+                <p class="text-lg pl-6 text-white font-bold">
+                  📞 Srushti Bhore: 76661 39459
+                </p>
+              </div>
+
+              <!-- Button Wrapper for Centering -->
+              <div class="flex justify-center mt-4">
+                <a
+                  target="_blank"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSe6wyDCC5aJ9aZZqvC455UWb02db7hBG9aUkg5N1w3p-dinqw/viewform?usp=header"
+                  class="text-2xl font-bold text-amber-200 border-amber-200 border-2 px-6 py-3 rounded-2xl transition duration-300 hover:text-black hover:scale-110 hover:bg-yellow-200"
+                >
+                  🚀 REGISTER NOW!!!
+                </a>
+              </div>
+            </div>
+
+            <div class="p-4">
+              <div class="mb-3">
+                <p class="text-2xl font-bold mb-6">
+                  GROUP C: Civil/Mechanical/Chemical & Plastic polymer
+                </p>
+                <p class="text-xl font-bold text-purple-300">
+                  Venue:
+                  <span class="text-white">classroom 011 (Civil Dept.)</span>
+                </p>
+              </div>
+
+              <div class="flex-1 space-y-2 mb-3">
+                <p class="text-xl font-bold text-purple-300">
+                  Suggested Topics for Presentation:
+                </p>
+                <ul class="list-none pl-6 text-lg space-y-2">
+                  <li>
+                    🏗️
+                    <b>Emerging Trends in Civil & Mechanical Engineering:</b>
+                    The future of infrastructure and design.
+                  </li>
+                  <li>
+                    🌱 <b>Green Building Concepts:</b> Sustainable construction
+                    for a better tomorrow.
+                  </li>
+                  <li>
+                    🛠️ <b>Self-Healing Concrete:</b> The next evolution in
+                    durable structures.
+                  </li>
+                  <li>
+                    🤖 <b>Automation in Industrial Robotics:</b> Transforming
+                    manufacturing efficiency.
+                  </li>
+                  <li>
+                    🧠 <b>AI in Manufacturing:</b> Smart factories and
+                    intelligent production.
+                  </li>
+                  <li>
+                    ♻️ <b>Hazardous Waste Management:</b> Tackling industrial
+                    waste responsibly.
+                  </li>
+                  <li>
+                    🛞 <b>Injection Molding Innovations:</b> Lightweight plastics
+                    for a stronger future.
+                  </li>
+                  <li>🛠️ <b>Any Other Disciplinary Topics</b></li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="text-xl font-bold text-purple-300">Coordinators:</p>
+                <p class="text-lg pl-6 text-white font-bold">
+                  📞 Prem Akhare: 84838 94078
+                </p>
+                <p class="text-lg pl-6 text-white font-bold">
+                  📞 Saksham Gadge: 87671 14698
+                </p>
+              </div>
+
+              <!-- Button Wrapper for Centering -->
+              <div class="flex justify-center mt-4">
+                <a
+                  target="_blank"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSc2nSBC_rTTXImUBqqU091PX_fEBi36ITdLNAupRTIlQ_5UVQ/viewform?usp=header"
+                  class="text-2xl font-bold text-amber-200 border-amber-200 border-2 px-6 py-3 rounded-2xl transition duration-300 hover:text-black hover:scale-110 hover:bg-yellow-200"
+                >
+                  🚀 REGISTER NOW!!!
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="code-quest" class="w-full pt-40 flex flex-col px-6 sm:px-10">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-amber-100">
+          CODEQUEST
+        </h1>
+        <p
+          class="text-2xl sm:text-3xl font-extrabold text-indigo-200 mb-6 sm:mb-10"
+        >
+          Let your inner geek out
+        </p>
+
+        <div
+          class="text-white border-4 bg-gray-900 border-yellow-200 flex flex-col lg:flex-row justify-between rounded-2xl p-6 sm:p-10 gap-6"
+        >
+          <div class="flex-1">
+            <p class="text-xl sm:text-2xl mb-5">
+              20 teams. 3 intense rounds. Challenging problems. Cash prizes.
+              <br />
+              What more could you ask for? 🚀
+            </p>
+            <div class="text-lg sm:text-xl font-bold text-purple-300">
+              💡 Rounds:
+            </div>
+            <ul class="list-disc pl-6 text-lg space-y-1">
+              <li>📖 <b>Round 1:</b> CQuiz</li>
+              <li>🔎 <b>Round 2:</b> Coding Express</li>
+              <li>⚡ <b>Round 3:</b> Code Hunt</li>
+            </ul>
+            <!-- Time & Venue -->
+            <div>
+              <p class="text-2xl font-bold text-purple-300 mt-5">
+                📅 Time & Venue:
               </p>
-              <ul class="list-none pl-6 text-lg space-y-2">
-                <li>🤖 <b>Artificial Intelligence</b></li>
-                <li>🛡️ <b>Cybersecurity & Ethical Hacking</b></li>
+              <ul class="list-disc pl-6 text-lg space-y-1">
                 <li>
-                  🌐 <b>Emerging Technologies:</b> Blockchain, IoT & Cloud
-                  Computing
+                  <span class="font-bold text-purple-300">Time:</span> 10 AM - 3
+                  PM
                 </li>
                 <li>
-                  📡
-                  <b>Advancements in Wireless Communication & Networking</b>
+                  <span class="font-bold text-purple-300">Venue:</span> IF001 &
+                  IF002 (IT Dept.)
                 </li>
-                <li>
-                  🌱 <b>Sustainable & Green Computing in Modern Technology</b>
-                </li>
-                <li>🛠️ <b>Any Other Disciplinary Topics</b></li>
               </ul>
             </div>
-
+            <div class="text-lg sm:text-xl font-bold mt-4 text-purple-300">
+              🔴 Rules & Guidelines:
+            </div>
+            <ul class="list-disc pl-5 mb-5 text-lg sm:text-xl">
+              <li>Teams must have at max 2 members.</li>
+              <li>Programming tools and computers will be provided.</li>
+              <li>Time constraints will be strictly followed.</li>
+              <li>Any form of cheating will result in disqualification.</li>
+            </ul>
+            <div class="text-lg">
+              <p>
+                <span class="font-bold text-purple-300">💰 Entry Fee:</span>
+                ₹200 per team (Max 2 members)
+              </p>
+              <p>
+                <span class="font-bold text-purple-300">🔢 Max Entries:</span>
+                50 teams
+              </p>
+            </div>
             <div>
-              <p class="text-xl font-bold text-purple-300">Coordinators:</p>
-              <p class="text-lg pl-6 text-white font-bold">
-                📞 Apeksha Kene: 95290 54451
+              <p class="text-lg sm:text-xl font-bold mt-4 text-purple-300">
+                🏅 Prizes:
               </p>
-              <p class="text-lg pl-6 text-white font-bold">
-                📞 Abhilasha Trikane: 94236 60650
-              </p>
-            </div>
-
-            <!-- Button Wrapper for Centering -->
-            <div class="flex justify-center mt-4">
-              <a target="_blank"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfLUcmaYAGxghA-0HHCYZBB_G7L4ptbD9CQHMpN3TT-v635IA/viewform?usp=header"
-                class="text-2xl font-bold text-amber-200 border-amber-200 border-2 px-6 py-3 rounded-2xl transition duration-300 hover:text-black hover:scale-110 hover:bg-yellow-200">
-                🚀 REGISTER NOW!!!
-              </a>
-            </div>
-          </div>
-
-          <div class="p-4" style="border-bottom: solid">
-            <div class="mb-3">
-              <p class="text-2xl font-bold mb-6">
-                GROUP B: Electronic / Electrical
-              </p>
-              <p class="text-xl font-bold text-purple-300">
-                Venue:
-                <span class="text-white">Seminar hall (EXTC dept)</span>
-              </p>
-            </div>
-
-            <div class="flex-1 space-y-2 mb-3">
-              <p class="text-xl font-bold text-purple-300">
-                Suggested Topics for Presentation:
-              </p>
-              <ul class="list-none pl-6 text-lg space-y-2">
-                <li>
-                  ♻️ <b>Electronic Waste Management:</b> Sustainable solutions
-                  for e-waste.
-                </li>
-                <li>
-                  📶 <b>5G and Beyond:</b> Advancements, applications, and
-                  future scope.
-                </li>
-                <li>
-                  🤖 <b>AI in Telecommunication:</b> Enhancing network
-                  efficiency and security.
-                </li>
-                <li>
-                  💡 <b>Li-Fi Technology:</b> High-speed data transmission
-                  using light.
-                </li>
-                <li>
-                  ⚡ <b>Smart Grid Technology:</b> Exploring its future
-                  potential.
-                </li>
-                <li>
-                  🛠️ <b>Fault Detection & Self-Healing Grids:</b> Enhancing
-                  power reliability.
-                </li>
-                <li>
-                  🔋 <b>Battery Management Systems:</b> Optimizing performance
-                  for EVs.
-                </li>
-                <li>
-                  ☀️ <b>Solar-Powered EV Charging Stations:</b> A step towards
-                  sustainability.
-                </li>
-                <li>🛠️ <b>Any Other Disciplinary Topics</b></li>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>🥇 <b>Winner:</b> ₹3,000 + Certificate</li>
+                <li>🥈 <b>Runner-up:</b> ₹1,500 + Certificate</li>
               </ul>
-            </div>
-
-            <div>
-              <p class="text-xl font-bold text-purple-300">Coordinators:</p>
-              <p class="text-lg pl-6 text-white font-bold">
-                📞 Abhijeet ingale: 70383 29064
-              </p>
-              <p class="text-lg pl-6 text-white font-bold">
-                📞 Srushti Bhore: 76661 39459
+              <p class="text-lg pl-6 text-green-300 font-semibold">
+                🎖 Certificate of Participation for all Participants!
               </p>
             </div>
-
-            <!-- Button Wrapper for Centering -->
-            <div class="flex justify-center mt-4">
-              <a target="_blank"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSe6wyDCC5aJ9aZZqvC455UWb02db7hBG9aUkg5N1w3p-dinqw/viewform?usp=header"
-                class="text-2xl font-bold text-amber-200 border-amber-200 border-2 px-6 py-3 rounded-2xl transition duration-300 hover:text-black hover:scale-110 hover:bg-yellow-200">
-                🚀 REGISTER NOW!!!
-              </a>
-            </div>
-          </div>
-
-          <div class="p-4">
-            <div class="mb-3">
-              <p class="text-2xl font-bold mb-6">
-                GROUP C: Civil/Mechanical/Chemical & Plastic polymer
-              </p>
-              <p class="text-xl font-bold text-purple-300">
-                Venue:
-                <span class="text-white">classroom 011 (Civil Dept.)</span>
-              </p>
-            </div>
-
-            <div class="flex-1 space-y-2 mb-3">
-              <p class="text-xl font-bold text-purple-300">
-                Suggested Topics for Presentation:
-              </p>
-              <ul class="list-none pl-6 text-lg space-y-2">
-                <li>
-                  🏗️
-                  <b>Emerging Trends in Civil & Mechanical Engineering:</b>
-                  The future of infrastructure and design.
-                </li>
-                <li>
-                  🌱 <b>Green Building Concepts:</b> Sustainable construction
-                  for a better tomorrow.
-                </li>
-                <li>
-                  🛠️ <b>Self-Healing Concrete:</b> The next evolution in
-                  durable structures.
-                </li>
-                <li>
-                  🤖 <b>Automation in Industrial Robotics:</b> Transforming
-                  manufacturing efficiency.
-                </li>
-                <li>
-                  🧠 <b>AI in Manufacturing:</b> Smart factories and
-                  intelligent production.
-                </li>
-                <li>
-                  ♻️ <b>Hazardous Waste Management:</b> Tackling industrial
-                  waste responsibly.
-                </li>
-                <li>
-                  🛞 <b>Injection Molding Innovations:</b> Lightweight plastics
-                  for a stronger future.
-                </li>
-                <li>🛠️ <b>Any Other Disciplinary Topics</b></li>
-              </ul>
-            </div>
-
-            <div>
-              <p class="text-xl font-bold text-purple-300">Coordinators:</p>
-              <p class="text-lg pl-6 text-white font-bold">
-                📞 Prem Akhare: 84838 94078
-              </p>
-              <p class="text-lg pl-6 text-white font-bold">
-                📞 Saksham Gadge: 87671 14698
-              </p>
-            </div>
-
-            <!-- Button Wrapper for Centering -->
-            <div class="flex justify-center mt-4">
-              <a target="_blank"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSc2nSBC_rTTXImUBqqU091PX_fEBi36ITdLNAupRTIlQ_5UVQ/viewform?usp=header"
-                class="text-2xl font-bold text-amber-200 border-amber-200 border-2 px-6 py-3 rounded-2xl transition duration-300 hover:text-black hover:scale-110 hover:bg-yellow-200">
-                🚀 REGISTER NOW!!!
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="code-quest" class="w-full pt-40 flex flex-col px-6 sm:px-10">
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-amber-100">
-        CODEQUEST
-      </h1>
-      <p class="text-2xl sm:text-3xl font-extrabold text-indigo-200 mb-6 sm:mb-10">
-        Let your inner geek out
-      </p>
-
-      <div
-        class="text-white border-4 bg-gray-900 border-yellow-200 flex flex-col lg:flex-row justify-between rounded-2xl p-6 sm:p-10 gap-6">
-        <div class="flex-1">
-          <p class="text-xl sm:text-2xl mb-5">
-            20 teams. 3 intense rounds. Challenging problems. Cash prizes.
-            <br />
-            What more could you ask for? 🚀
-          </p>
-          <div class="text-lg sm:text-xl font-bold text-purple-300">
-            💡 Rounds:
-          </div>
-          <ul class="list-disc pl-6 text-lg space-y-1">
-            <li>📖 <b>Round 1:</b> CQuiz</li>
-            <li>🔎 <b>Round 2:</b> Coding Express</li>
-            <li>⚡ <b>Round 3:</b> Code Hunt</li>
-          </ul>
-          <!-- Time & Venue -->
-          <div>
-            <p class="text-2xl font-bold text-purple-300 mt-5">
-              📅 Time & Venue:
-            </p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li>
-                <span class="font-bold text-purple-300">Time:</span> 10 AM - 3
-                PM
-              </li>
-              <li>
-                <span class="font-bold text-purple-300">Venue:</span> IF001 &
-                IF002 (IT Dept.)
-              </li>
-            </ul>
-          </div>
-          <div class="text-lg sm:text-xl font-bold mt-4 text-purple-300">
-            🔴 Rules & Guidelines:
-          </div>
-          <ul class="list-disc pl-5 mb-5 text-lg sm:text-xl">
-            <li>Teams must have at max 2 members.</li>
-            <li>Programming tools and computers will be provided.</li>
-            <li>Time constraints will be strictly followed.</li>
-            <li>Any form of cheating will result in disqualification.</li>
-          </ul>
-          <div class="text-lg">
-            <p>
-              <span class="font-bold text-purple-300">💰 Entry Fee:</span>
-              ₹200 per team (Max 2 members)
-            </p>
-            <p>
-              <span class="font-bold text-purple-300">🔢 Max Entries:</span>
-              50 teams
-            </p>
-          </div>
-          <div>
-            <p class="text-lg sm:text-xl font-bold mt-4 text-purple-300">
-              🏅 Prizes:
-            </p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li>🥇 <b>Winner:</b> ₹3,000 + Certificate</li>
-              <li>🥈 <b>Runner-up:</b> ₹1,500 + Certificate</li>
-            </ul>
-            <p class="text-lg pl-6 text-green-300 font-semibold">
-              🎖 Certificate of Participation for all Participants!
-            </p>
-          </div>
-          <p class="text-lg sm:text-xl font-bold text-purple-300 mt-4">
-            👥 Coordinators:
-          </p>
-          <div class="ml-5 text-lg sm:text-xl text-purple-50">
-            Om Kadu: 87669 38163
-          </div>
-          <div class="ml-5 text-lg sm:text-xl text-purple-50">
-            Vedant Kuralkar: 99212 15879
-          </div>
-        </div>
-
-        <div class="flex flex-col items-center gap-4">
-          <img src="./public/Codequest.gif" class="w-32 sm:w-48 md:w-60 lg:w-96 rounded-2xl mt-4 lg:mt-24"
-            alt="CodeQuest GIF" />
-          <a target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeUfsSsqfgfcpJKdKxOM0rJxgU6fnMy8x760MImSdEJGB9OTA/viewform"
-            class="text-lg sm:text-2xl font-extrabold text-yellow-200 border-4 border-yellow-200 rounded-2xl px-6 sm:px-10 py-3 sm:py-4 text-center transition-all duration-300 hover:scale-110 hover:bg-yellow-200 hover:text-black shadow-lg">
-            🚀 REGISTER NOW!!!
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="quiz-competition" class="w-full pt-32 px-6 lg:px-16">
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-amber-100">
-        QUIZSPARK
-      </h1>
-      <p class="text-2xl sm:text-3xl font-extrabold text-indigo-200 mt-4 mb-8 sm:mb-12">
-        Test Your Knowledge, Compete & Conquer! 🏆
-      </p>
-
-      <div
-        class="bg-gray-900 text-white border-4 border-yellow-200 rounded-2xl p-6 sm:p-10 flex flex-col lg:flex-row justify-between gap-8 sm:gap-12 shadow-xl">
-        <div class="flex-1 space-y-6 sm:space-y-8">
-          <p class="text-xl sm:text-2xl leading-relaxed">
-            Join the ultimate battle of knowledge and showcase your
-            intelligence! 📚💡
-          </p>
-
-          <!-- Entry Fee & Maximum Entries -->
-          <div class="grid grid-cols-1 gap-2 sm:gap-4 text-lg sm:text-xl">
-            <p>
-              <span class="font-bold text-purple-300">💰 Entry Fee:</span>
-              ₹100 per team (Max 2 members)
-            </p>
-            <p>
-              <span class="font-bold text-purple-300">🔢 Max Entries:</span>
-              100 teams
-            </p>
-          </div>
-
-          <!-- Competition Rounds -->
-          <div>
-            <p class="text-xl sm:text-2xl font-bold text-purple-300">
-              🏆 Competition Rounds:
-            </p>
-            <ul class="list-disc pl-6 text-lg sm:text-xl space-y-1">
-              <li>📖 <b>Round 1:</b> 30-minute Written Quiz</li>
-              <li>🔎 <b>Round 2:</b> 20-minute Problem-Solving Round</li>
-              <li>⚡ <b>Round 3:</b> Exciting Buzzer Round</li>
-            </ul>
-          </div>
-
-          <!-- Rules & Regulations -->
-          <div>
-            <p class="text-xl sm:text-2xl font-bold text-purple-300">
-              📜 Rules & Regulations:
-            </p>
-            <ul class="list-disc pl-6 text-lg sm:text-xl space-y-1">
-              <li>👥 Each team must have <b>At Max 2 members</b>.</li>
-              <li>📵 <b>No use of mobile phones or smart devices.</b></li>
-              <li>
-                ⏰ Participants must arrive
-                <b>30 minutes before the event starts.</b>
-              </li>
-              <li>
-                ⏳ <b>No extra time</b> will be given once the round begins.
-              </li>
-              <li>
-                ⚖️ Event coordinators' decisions are <b>final and binding.</b>
-              </li>
-              <li>
-                🚫 Teams violating rules will be
-                <b>disqualified immediately.</b>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Time & Venue -->
-          <div>
-            <p class="text-xl sm:text-2xl font-bold text-purple-300">
-              📅 Time & Venue:
-            </p>
-            <ul class="list-disc pl-6 text-lg sm:text-xl space-y-1">
-              <li>
-                <span class="font-bold text-purple-300">Time:</span> 10AM - 3
-                PM
-              </li>
-              <li>
-                <span class="font-bold text-purple-300">Venue:</span> EM101 &
-                EM108 (Electrical Engg Dept.)
-              </li>
-            </ul>
-          </div>
-
-          <!-- Prizes -->
-          <div>
-            <p class="text-xl sm:text-2xl font-bold text-purple-300">
-              🏅 Prizes:
-            </p>
-            <ul class="list-disc pl-6 text-lg sm:text-xl space-y-1">
-              <li>🥇 <b>Winner:</b> ₹3,000 + Certificate</li>
-              <li>🥈 <b>Runner-up:</b> ₹1,500 + Certificate</li>
-            </ul>
-            <p class="text-lg sm:text-xl pl-6 text-green-300 font-semibold">
-              🎖 Certificate of Participation for all teams!
-            </p>
-          </div>
-
-          <!-- Event Coordinators -->
-          <div>
-            <p class="text-xl sm:text-2xl font-bold text-purple-300">
+            <p class="text-lg sm:text-xl font-bold text-purple-300 mt-4">
               👥 Coordinators:
             </p>
-            <p class="text-lg sm:text-xl pl-6 text-purple-50">
-              📞 Rohit Hole: 76665 96640
+            <div class="ml-5 text-lg sm:text-xl text-purple-50">
+              Om Kadu: 87669 38163
+            </div>
+            <div class="ml-5 text-lg sm:text-xl text-purple-50">
+              Vedant Kuralkar: 99212 15879
+            </div>
+          </div>
+
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src="./public/Codequest.gif"
+              class="w-32 sm:w-48 md:w-60 lg:w-96 rounded-2xl mt-4 lg:mt-24"
+              alt="CodeQuest GIF"
+            />
+            <a
+              target="_blank"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeUfsSsqfgfcpJKdKxOM0rJxgU6fnMy8x760MImSdEJGB9OTA/viewform"
+              class="text-lg sm:text-2xl font-extrabold text-yellow-200 border-4 border-yellow-200 rounded-2xl px-6 sm:px-10 py-3 sm:py-4 text-center transition-all duration-300 hover:scale-110 hover:bg-yellow-200 hover:text-black shadow-lg"
+            >
+              🚀 REGISTER NOW!!!
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="quiz-competition" class="w-full pt-32 px-6 lg:px-16">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-amber-100">
+          QUIZSPARK
+        </h1>
+        <p
+          class="text-2xl sm:text-3xl font-extrabold text-indigo-200 mt-4 mb-8 sm:mb-12"
+        >
+          Test Your Knowledge, Compete & Conquer! 🏆
+        </p>
+
+        <div
+          class="bg-gray-900 text-white border-4 border-yellow-200 rounded-2xl p-6 sm:p-10 flex flex-col lg:flex-row justify-between gap-8 sm:gap-12 shadow-xl"
+        >
+          <div class="flex-1 space-y-6 sm:space-y-8">
+            <p class="text-xl sm:text-2xl leading-relaxed">
+              Join the ultimate battle of knowledge and showcase your
+              intelligence! 📚💡
             </p>
-            <p class="text-lg sm:text-xl pl-6 text-purple-50">
-              📞 Shreyas More: 74999 03959
+
+            <!-- Entry Fee & Maximum Entries -->
+            <div class="grid grid-cols-1 gap-2 sm:gap-4 text-lg sm:text-xl">
+              <p>
+                <span class="font-bold text-purple-300">💰 Entry Fee:</span>
+                ₹100 per team (Max 2 members)
+              </p>
+              <p>
+                <span class="font-bold text-purple-300">🔢 Max Entries:</span>
+                100 teams
+              </p>
+            </div>
+
+            <!-- Competition Rounds -->
+            <div>
+              <p class="text-xl sm:text-2xl font-bold text-purple-300">
+                🏆 Competition Rounds:
+              </p>
+              <ul class="list-disc pl-6 text-lg sm:text-xl space-y-1">
+                <li>📖 <b>Round 1:</b> 30-minute Written Quiz</li>
+                <li>🔎 <b>Round 2:</b> 20-minute Problem-Solving Round</li>
+                <li>⚡ <b>Round 3:</b> Exciting Buzzer Round</li>
+              </ul>
+            </div>
+
+            <!-- Rules & Regulations -->
+            <div>
+              <p class="text-xl sm:text-2xl font-bold text-purple-300">
+                📜 Rules & Regulations:
+              </p>
+              <ul class="list-disc pl-6 text-lg sm:text-xl space-y-1">
+                <li>👥 Each team must have <b>At Max 2 members</b>.</li>
+                <li>📵 <b>No use of mobile phones or smart devices.</b></li>
+                <li>
+                  ⏰ Participants must arrive
+                  <b>30 minutes before the event starts.</b>
+                </li>
+                <li>
+                  ⏳ <b>No extra time</b> will be given once the round begins.
+                </li>
+                <li>
+                  ⚖️ Event coordinators' decisions are <b>final and binding.</b>
+                </li>
+                <li>
+                  🚫 Teams violating rules will be
+                  <b>disqualified immediately.</b>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Time & Venue -->
+            <div>
+              <p class="text-xl sm:text-2xl font-bold text-purple-300">
+                📅 Time & Venue:
+              </p>
+              <ul class="list-disc pl-6 text-lg sm:text-xl space-y-1">
+                <li>
+                  <span class="font-bold text-purple-300">Time:</span> 10AM - 3
+                  PM
+                </li>
+                <li>
+                  <span class="font-bold text-purple-300">Venue:</span> EM101 &
+                  EM108 (Electrical Engg Dept.)
+                </li>
+              </ul>
+            </div>
+
+            <!-- Prizes -->
+            <div>
+              <p class="text-xl sm:text-2xl font-bold text-purple-300">
+                🏅 Prizes:
+              </p>
+              <ul class="list-disc pl-6 text-lg sm:text-xl space-y-1">
+                <li>🥇 <b>Winner:</b> ₹3,000 + Certificate</li>
+                <li>🥈 <b>Runner-up:</b> ₹1,500 + Certificate</li>
+              </ul>
+              <p class="text-lg sm:text-xl pl-6 text-green-300 font-semibold">
+                🎖 Certificate of Participation for all teams!
+              </p>
+            </div>
+
+            <!-- Event Coordinators -->
+            <div>
+              <p class="text-xl sm:text-2xl font-bold text-purple-300">
+                👥 Coordinators:
+              </p>
+              <p class="text-lg sm:text-xl pl-6 text-purple-50">
+                📞 Rohit Hole: 76665 96640
+              </p>
+              <p class="text-lg sm:text-xl pl-6 text-purple-50">
+                📞 Shreyas More: 74999 03959
+              </p>
+              <p class="text-lg sm:text-xl pl-6 text-purple-50">
+                📞 Abhijeet Phusey: 77090 29651
+              </p>
+            </div>
+          </div>
+
+          <!-- Registration Section -->
+          <div class="flex flex-col items-center gap-6 sm:gap-8">
+            <img
+              src="./public/quiz.gif"
+              class="w-32 sm:w-48 md:w-60 lg:w-96 rounded-2xl mt-4 lg:mt-24"
+              alt="Quiz Competition GIF"
+            />
+            <a
+              target="_blank"
+              href="https://docs.google.com/forms/d/e/1FAIpQLScy6J9wkVhhGwbGgJFO3Ur6038KtIGaMc0O8dit3vHlJmzAWA/viewform?usp=dialog"
+              class="text-lg sm:text-2xl font-extrabold text-yellow-200 border-4 border-yellow-200 rounded-2xl px-6 sm:px-10 py-3 sm:py-4 text-center transition-all duration-300 hover:scale-110 hover:bg-yellow-200 hover:text-black shadow-lg"
+            >
+              🚀 REGISTER NOW!!!
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="robo-race" class="w-full pt-32 px-6 lg:px-16">
+        <h1 class="text-5xl font-extrabold text-amber-100">ROBODRIFT</h1>
+        <p class="text-3xl font-extrabold text-indigo-200 mt-4 mb-12">
+          Build, Race & Conquer the Track! 🤖🏁
+        </p>
+
+        <div
+          class="bg-gray-900 text-white border-4 border-yellow-200 rounded-2xl p-10 flex flex-col lg:flex-row justify-between gap-12 shadow-xl"
+        >
+          <div class="flex-1 space-y-8">
+            <p class="text-2xl leading-relaxed">
+              Gear up for the ultimate robotics showdown and prove your
+              engineering skills! ⚙️🚀
             </p>
-            <p class="text-lg sm:text-xl pl-6 text-purple-50">
-              📞 Abhijeet Phusey: 77090 29651
+
+            <!-- Time & Venue -->
+            <div>
+              <p class="text-2xl font-bold text-purple-300">📅 Time & Venue:</p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li><b class="text-purple-300">Time:</b> 10AM - 3 PM</li>
+                <li>
+                  <b class="text-purple-300">Venue:</b> Main Building (Ground)
+                </li>
+              </ul>
+            </div>
+
+            <!-- Entry Fee -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
+              <p>
+                <b class="text-purple-300">💰 Entry Fee:</b> ₹200 per team (Max
+                2 members)
+              </p>
+            </div>
+
+            <!-- Rules & Regulations -->
+            <div>
+              <p class="text-2xl font-bold text-purple-300">
+                📜 Rules & Regulations:
+              </p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>🚫 No test practice allowed on the main arena.</li>
+                <li>⚡ Charging terminals will <b>not</b> be provided.</li>
+                <li>
+                  📍 Robots crossing checkpoints & moving off track will restart
+                  from the last checkpoint.
+                </li>
+                <li>🔄 No structural modifications during the competition.</li>
+                <li>✋ Max <b>3 hand touches</b> allowed.</li>
+                <li>⏭️ Max <b>2 skips</b>, each adding time penalties.</li>
+                <li>⏱️ The competition follows a <b>time trial system</b>.</li>
+                <li>
+                  🏁 The <b>fastest qualifying team</b> will compete in the
+                  final.
+                </li>
+                <li>
+                  ⚙️ Robots must meet specifications or face disqualification.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Robot Specifications -->
+            <div>
+              <p class="text-2xl font-bold text-purple-300">
+                🤖 Want to bring your own bots? :
+                <a
+                  target="_blank"
+                  href="./public/Roborace-1.pdf"
+                  class="text-amber-200"
+                  >CLICK HERE</a
+                >
+              </p>
+            </div>
+
+            <!-- Judging Criteria -->
+            <div>
+              <p class="text-2xl font-bold text-purple-300">
+                ⚖️ Judging Criteria:
+              </p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>⏱️ <b>Time Lap:</b> Faster track completion is better.</li>
+                <li>
+                  📍 <b>Checkpoints Cleared:</b> More checkpoints mean a better
+                  ranking.
+                </li>
+                <li>⏭️ <b>Skips:</b> More skips result in penalties.</li>
+                <li>
+                  ✋ <b>Hand Touches:</b> Excess hand touches add penalties.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Prizes -->
+            <div>
+              <p class="text-2xl font-bold text-purple-300">🏅 Prizes:</p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>🥇 <b>Winner:</b> ₹3,000 + Certificate</li>
+                <li>🥈 <b>Runner-up:</b> ₹1,500 + Certificate</li>
+              </ul>
+              <p class="text-lg pl-6 text-green-300 font-semibold">
+                🎖 Certificate of Participation for all teams!
+              </p>
+            </div>
+
+            <!-- Event Coordinators -->
+            <div>
+              <p class="text-2xl font-bold text-purple-300">👥 Coordinators:</p>
+              <p class="text-lg pl-6 text-purple-50">
+                📞 Himanshu Jajoo: 86689 49851
+              </p>
+              <p class="text-lg pl-6 text-purple-50">
+                📞 Samyak Khiloshiya: 88883 84870
+              </p>
+            </div>
+          </div>
+
+          <!-- Registration Section -->
+          <div class="flex flex-col items-center gap-8 w-full lg:w-auto">
+            <img
+              src="./public/roborace.gif"
+              class="w-48 sm:w-64 rounded-2xl mt-10 lg:mt-24"
+              alt="Robo Race GIF"
+            />
+            <a
+              target="_blank"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeJm6_mkyM7Sp3s45P2A0eJDM0tqMjOdKRVAIN3p9hL-HOLNQ/viewform"
+              class="text-2xl font-extrabold text-yellow-200 border-4 border-yellow-200 rounded-2xl px-10 py-4 text-center transition-all duration-300 hover:scale-110 hover:bg-yellow-200 hover:text-black shadow-lg"
+            >
+              🚀 REGISTER NOW!!!
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="circuit-fixer" class="w-full pt-40 px-6 lg:px-16">
+        <h1
+          class="text-5xl font-extrabold text-amber-100 text-center lg:text-left"
+        >
+          CIRCUIT FIXER
+        </h1>
+        <p
+          class="text-3xl font-extrabold text-indigo-200 text-center lg:text-left mb-10"
+        >
+          Unleash The Engineer Within
+        </p>
+
+        <div
+          class="text-white border-4 border-yellow-200 rounded-2xl p-10 shadow-xl flex flex-col lg:flex-row gap-10"
+        >
+          <!-- Left Side Content -->
+          <div class="flex-1 space-y-6">
+            <p class="text-2xl">
+              Solve MCQs, design circuits, and claim your victory! 🚀
             </p>
+
+            <!-- Rounds -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">💡 Rounds:</p>
+              <ul class="list-disc pl-5 text-xl space-y-1">
+                <li>Circuit Quiz</li>
+                <li>Circuit Builder</li>
+              </ul>
+            </div>
+
+            <!-- Entry Fee & Max Entries -->
+            <div class="text-lg">
+              <p>
+                <span class="font-bold text-purple-300">💰 Entry Fee:</span>
+                ₹200 per Team
+              </p>
+              <p>
+                <span class="font-bold text-purple-300">🔢 Max Entries:</span>
+                50 Teams
+              </p>
+            </div>
+
+            <!-- Time & Venue -->
+            <div>
+              <p class="text-2xl font-bold text-purple-300">📅 Time & Venue:</p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li><b class="text-purple-300">Time:</b> 10AM - 3 PM</li>
+                <li>
+                  <span class="font-bold text-purple-300">Venue:</span>
+                  classrooms 201, 204 (Extc department)
+                </li>
+              </ul>
+            </div>
+
+            <!-- Rules -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">
+                🔴 Rules & Guidelines:
+              </p>
+              <ul class="list-disc pl-5 text-xl space-y-1">
+                <li>Participants must compete in teams of 2.</li>
+                <li>Use of Smartphones is not allowed.</li>
+                <li>Time constraints will be strictly followed.</li>
+              </ul>
+            </div>
+
+            <!-- Prizes -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">🏅 Prizes:</p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>🥇 <b>Winner:</b> ₹3,000 + Certificate</li>
+                <li>🥈 <b>Runner-up:</b> ₹1,500 + Certificate</li>
+              </ul>
+              <p class="text-lg pl-6 text-green-300 font-semibold">
+                🎖 Certificate of Participation for all players!
+              </p>
+            </div>
+
+            <!-- Coordinators -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">👥 Coordinators:</p>
+              <p class="text-lg pl-6 text-purple-50">
+                📞 Yadnyesh Kuware: 95032 83715
+              </p>
+              <p class="text-lg pl-6 text-purple-50">
+                📞 Jasbir-Singh Monga: 95189 81821
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Side (Image + Register Button) -->
+          <div class="flex flex-col items-center gap-6 w-full lg:w-auto">
+            <img
+              src="./public/circuit.gif"
+              class="w-40 sm:w-56 rounded-2xl mt-6 lg:mt-24"
+              alt="Circuit Fixer GIF"
+            />
+            <a
+              target="_blank"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSejty3Hnaj3ef2-xgDaZBWck0dpEzHE5eX-mZ0uWFf_kRJO3g/viewform"
+              class="text-2xl font-extrabold text-yellow-200 border-4 border-yellow-200 rounded-2xl px-10 py-4 text-center transition-all duration-300 hover:scale-110 hover:bg-yellow-200 hover:text-black shadow-lg"
+            >
+              REGISTER NOW!!!
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="lan-gaming" class="w-full pt-32 px-6 lg:px-16">
+        <h1 class="text-5xl font-extrabold text-amber-100">E-SPORTS</h1>
+        <p class="text-3xl font-extrabold text-indigo-200 mt-4 mb-12">
+          Battle It Out, Dominate the Arena & Be the Champion! 🎮🔥
+        </p>
+
+        <div
+          class="bg-gray-900 text-white border-4 border-yellow-200 rounded-2xl p-10 flex flex-col lg:flex-row justify-between gap-12 shadow-xl"
+        >
+          <div class="flex-1 space-y-8">
+            <p class="text-2xl leading-relaxed">
+              Join the ultimate gaming showdown and prove your skills in an
+              electrifying Virtual battle! 🎯🕹️
+            </p>
+
+            <!-- Time & Venue -->
+            <div>
+              <p class="text-2xl font-bold text-purple-300">📅 Time & Venue:</p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li><b class="text-purple-300">Time:</b> 10AM - 3 PM</li>
+                <li>
+                  <span class="font-bold text-purple-300">Venue:</span> CL3, CL4
+                  & CL6 (computer lab)
+                </li>
+              </ul>
+            </div>
+
+            <!-- Games & Format -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">
+                🎮 Games & Format:
+              </p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>⚔️ <b>Game 1:</b> BGMI</li>
+                <li>🚗 <b>Game 2:</b> Free Fire</li>
+              </ul>
+            </div>
+
+            <!-- Rules & Regulations -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">
+                📜 Rules & Regulations:
+              </p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>👥 Each team must register as a squad.</li>
+                <li>💰 ₹200 registration fee per squad.</li>
+                <li>⏳ Squads must report 20 minutes before their match.</li>
+                <li>🏆 Winners will be announced at the end of each round.</li>
+                <li>
+                  🚫 Arguing with umpires will result in disqualification of the
+                  entire squad.
+                </li>
+                <li>📜 Match rules will be explained before the game.</li>
+                <!-- <li>🎯 Points matter the most, not just winning the match.</li> -->
+                <!-- <li>🔫 1 point per kill, with additional points based on final position.</li> -->
+                <li>
+                  ❌ Unfair gameplay (hacking, exploits) leads to immediate
+                  disqualification.
+                </li>
+              </ul>
+            </div>
+
+            <div class="text-lg">
+              <p>
+                <span class="font-bold text-purple-300">💰 Entry Fee:</span>
+                ₹200 per squad
+              </p>
+              <p>
+                <span class="font-bold text-purple-300">🔢 Max Entries:</span>
+                Free Fire: 25 squads BGMI: 50 squads
+              </p>
+            </div>
+            <!-- Prizes -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">
+                🏅 Prizes (Per Game):
+              </p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>🥇 <b>Winner:</b> ₹2,500 + Certificate</li>
+                <li>🥈 <b>Runner-up:</b> ₹1,500 + Certificate</li>
+              </ul>
+              <p class="text-lg pl-6 text-green-300 font-semibold">
+                🎖 Certificate of Participation for all players!
+              </p>
+            </div>
+
+            <!-- Event Coordinators -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">👥 Coordinators:</p>
+              <p class="text-lg pl-6 text-purple-50">
+                📞 Parth Dhawase: 97306 61809
+              </p>
+              <p class="text-lg pl-6 text-purple-50">
+                📞 Aaditya Bhangale: 87889 26772
+              </p>
+            </div>
+          </div>
+
+          <!-- Registration Section -->
+          <div class="flex flex-col items-center gap-8">
+            <img
+              src="./public/game.gif"
+              class="w-32 sm:w-72 rounded-2xl mt-24"
+              alt="CodeQuest GIF"
+            />
+
+            <a
+              target="_blank"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeRhXRhLqpHEUl-wfvlGs5IV1ljTIa-fJcWptAEHBBxFsIJNA/viewform?usp=dialog"
+              class="text-2xl font-extrabold text-yellow-200 border-4 border-yellow-200 rounded-2xl px-10 py-4 text-center transition-all duration-300 hover:scale-110 hover:bg-yellow-200 hover:text-black shadow-lg"
+            >
+              🚀 REGISTER NOW!!!
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="lan-gaming" class="w-full pt-32 px-6 lg:px-16">
+        <h1 class="text-5xl font-extrabold text-amber-100">BOX CRICKET</h1>
+        <p class="text-3xl font-extrabold text-indigo-200 mt-4 mb-12">
+          It's cricket! There's no way you're missing this!
+        </p>
+
+        <div
+          class="bg-gray-900 text-white border-4 border-yellow-200 rounded-2xl p-10 flex flex-col lg:flex-row justify-between gap-12 shadow-xl"
+        >
+          <div class="flex-1 space-y-8">
+            <p class="text-2xl leading-relaxed">
+              The excitement is real, and you definitely don’t want to miss out on the action! 🏏
+            </p>
+
+            <!-- Time & Venue -->
+            <div>
+              <p class="text-2xl font-bold text-purple-300">📅 Time & Venue:</p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li><b class="text-purple-300">Time:</b> [insert here]</li>
+                <li>
+                  <span class="font-bold text-purple-300">Venue:</span> [insert here]
+                </li>
+              </ul>
+            </div>
+
+
+            <!-- Rules & Regulations -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">
+                📜 Rules & Regulations:
+              </p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+              
+                <li>
+                  each Team must carry 7 members
+                </li>
+                <li>One Time Re-Entry available (extra fees: 100Rs.)</li>
+                <li>Spot entries available</li>
+              </ul>
+            </div>
+
+            <div class="text-lg">
+              <p>
+                <span class="font-bold text-purple-300">💰 Entry Fee:</span>
+                ₹450 per team (boys) <br />
+                <span class="ml-28">₹300 per team (girls)</span>
+              </p>
+            </div>
+            <!-- Prizes -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">🏅 Prizes (Boys):</p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>🥇 <b>Winner:</b> ₹6,000 + Certificate</li>
+                <li>🥈 <b>Runner-up:</b> ₹2,500 + Certificate</li>
+              </ul>
+
+              <p class="text-xl font-bold text-purple-300 mt-5">
+                🏅 Prizes (Girls):
+              </p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>🥇 <b>Winner:</b> ₹2,500 + Certificate</li>
+                <li>🥈 <b>Runner-up:</b> ₹1,500 + Certificate</li>
+              </ul>
+              <p class="text-lg pl-6 text-green-300 font-semibold">
+                🎖 Certificate of Participation for all players!
+              </p>
+            </div>
+
+            <!-- Event Coordinators -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">👥 Coordinators:</p>
+              <p class="text-lg pl-6 text-purple-50">
+                📞 Shubham Katre: 90673 76716
+              </p>
+              <p class="text-lg pl-6 text-purple-50">
+                📞 Yash Bansod: 99606 33849
+              </p>
+              <p class="text-lg pl-6 text-purple-50">
+                📞 Hani Khan: 92260 73556
+              </p>
+            </div>
+          </div>
+
+          <!-- Registration Section -->
+          <div class="flex flex-col items-center gap-8">
+            <img
+              src="./public/box-cricket.gif"
+              class="w-32 sm:w-72 rounded-2xl mt-24"
+              alt="CodeQuest GIF"
+            />
+
+            <a
+              target="_blank"
+              href="[insert here]"
+              class="text-2xl font-extrabold text-yellow-200 border-4 border-yellow-200 rounded-2xl px-10 py-4 text-center transition-all duration-300 hover:scale-110 hover:bg-yellow-200 hover:text-black shadow-lg"
+            >
+              🚀 REGISTER NOW!!!
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="poster-competition" class="w-full pt-32 px-6 lg:px-16">
+        <h1
+          class="text-5xl font-extrabold text-amber-100 text-center lg:text-left"
+        >
+          TECHNICAL POSTER COMPETITION
+        </h1>
+        <p
+          class="text-3xl font-extrabold text-indigo-200 text-center lg:text-left mt-4 mb-12"
+        >
+          Express Creativity, Inspire Change & Win Big! 🖌️🏆
+        </p>
+
+        <div
+          class="bg-gray-900 text-white border-4 border-yellow-200 rounded-2xl p-10 shadow-xl flex flex-col lg:flex-row gap-12"
+        >
+          <!-- Left Side Content -->
+          <div class="flex-1 space-y-6">
+            <p class="text-2xl leading-relaxed">
+              Unleash your artistic genius and bring your vision to life in this
+              exciting Poster Competition! 🎨✨
+            </p>
+
+            <!-- Theme & Guidelines -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">🖼️ Theme:</p>
+              <p class="text-lg pl-6 text-yellow-200">
+                "AI in Education System or healthcare system."
+              </p>
+              <p class="text-lg pl-6 text-yellow-200">"Green Technology"</p>
+            </div>
+
+            <div>
+              <p class="text-xl font-bold text-purple-300">
+                📜 Rules & Guidelines:
+              </p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <!-- <li>🎨 Posters can be digital or hand-drawn.</li> -->
+                <li>📏 size: A2 (16.5 x 23.4 inches).</li>
+                <li>👥 At max 2 participants per group.</li>
+                <li>
+                  🕒 Poster will be judged on the basis of relevance to the
+                  theme, originality and creativity.
+                </li>
+                <li>🏆 Bring your own material for displaying poster.</li>
+                <li>
+                  🚫 Plagiarism or copying existing designs will result in
+                  disqualification.
+                </li>
+                <li>🏆 Judges' decisions will be final.</li>
+              </ul>
+            </div>
+
+            <!-- Entry Fee & Max Entries -->
+            <div class="text-lg">
+              <p>
+                <span class="font-bold text-purple-300">💰 Entry Fee:</span>
+                ₹200 per Team
+              </p>
+              <p>
+                <span class="font-bold text-purple-300">🔢 Max Entries:</span>
+                100 Teams
+              </p>
+            </div>
+
+            <!-- Time & Venue -->
+            <div>
+              <p class="text-2xl font-bold text-purple-300">📅 Time & Venue:</p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>
+                  <span class="font-bold text-purple-300">Time:</span> 10 AM - 3
+                  PM
+                </li>
+                <li>
+                  <span class="font-bold text-purple-300">Venue:</span> Drawing
+                  Hall (Civil Dept.)
+                </li>
+              </ul>
+            </div>
+
+            <!-- Prizes -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">
+                🏅 Prizes (Per Category):
+              </p>
+              <ul class="list-disc pl-6 text-lg space-y-1">
+                <li>🥇 <b>Winner:</b> ₹2,100 + Certificate</li>
+                <li>🥈 <b>Runner-up:</b> ₹1,100 + Certificate</li>
+              </ul>
+              <p class="text-lg pl-6 text-green-300 font-semibold">
+                🎖 Certificate of Participation for all participants!
+              </p>
+            </div>
+
+            <!-- Coordinators -->
+            <div>
+              <p class="text-xl font-bold text-purple-300">👥 Coordinators:</p>
+              <p class="text-lg pl-6 text-purple-50">
+                📞 Chakradhar Panjarkar: 70579 82574
+              </p>
+              <p class="text-lg pl-6 text-purple-50">
+                📞 Manisha Raut: 80107 08304
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Side (Image + Register Button) -->
+          <div class="flex flex-col items-center gap-6 w-full lg:w-auto">
+            <img
+              src="./public/poster.gif"
+              class="w-40 sm:w-56 rounded-2xl mt-6 lg:mt-24"
+              alt="Poster Competition GIF"
+            />
+            <a
+              target="_blank"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdjBoiOVrILoJ1e5pYI0RkRBrAlg7skzzwJpfSyDZ0e-3VTmA/viewform?usp=header"
+              class="text-2xl font-extrabold text-yellow-200 border-4 border-yellow-200 rounded-2xl px-10 py-4 text-center transition-all duration-300 hover:scale-110 hover:bg-yellow-200 hover:text-black shadow-lg"
+            >
+              🎨 REGISTER NOW!!!
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about-us" class="w-full text-center pt-36 px-6 md:px-12">
+        <h1
+          class="anim text-6xl mb-5 md:text-7xl font-extrabold text-start text-amber-200"
+        >
+          About Us
+        </h1>
+        <p
+          class="anim text-2xl md:text-3xl mt-6 text-gray-300 text-start max-w-4xl"
+        >
+          PRAYAS 2K25 is a student-driven <b>technical fest</b> organized by
+          <span class="text-amber-300 font-bold"
+            >Government Polytechnic Amravati</span
+          >. A celebration of <b>innovation, technology, and creativity</b>,
+          built <b>by students, for students</b>! 🚀
+        </p>
+
+        <div class="anim text-4xl md:text-5xl mt-14 font-bold text-purple-50">
+          Meet Our Core Team
+        </div>
+
+        <div
+          class="flex flex-col items-center justify-center min-h-screen px-4 space-y-6"
+        >
+          <!-- Top Row: 3 Members -->
+          <div class="flex flex-wrap justify-center gap-6 w-full">
+            <div
+              class="anim bg-gray-900 p-6 h-80 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105"
+            >
+              <p class="text-3xl font-semibold text-gray-100">Parth Warkari</p>
+              <p class="text-2xl font-bold text-amber-300">VICE-PRESIDENT</p>
+              <p class="text-lg text-gray-300 mt-3">
+                Driving innovation and ensuring smooth execution of PRAYAS 2K25.
+              </p>
+            </div>
+
+            <div
+              class="anim bg-gray-900 p-6 h-80 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105"
+            >
+              <p class="text-3xl font-semibold text-gray-100">Khuteja Sheikh</p>
+              <p class="text-2xl font-bold text-amber-300">PRESIDENT</p>
+              <p class="text-lg text-gray-300 mt-3">
+                The visionary leading PRAYAS 2K25 to success, turning ideas into
+                reality.
+              </p>
+            </div>
+
+            <div
+              class="anim bg-gray-900 p-6 h-80 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105"
+            >
+              <p class="text-3xl font-semibold text-gray-100">
+                Pushpak Thakare
+              </p>
+              <p class="text-2xl font-bold text-amber-300">VICE-PRESIDENT</p>
+              <p class="text-lg text-gray-300 mt-3">
+                Empowering teams, fostering collaboration, and ensuring
+                excellence.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bottom Row: 2 Members (Centered) -->
+          <div class="flex flex-wrap justify-center gap-6 w-full">
+            <div
+              class="anim bg-gray-900 p-6 h-80 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105"
+            >
+              <p class="text-3xl font-semibold text-gray-100">
+                Atharva Bhagwat
+              </p>
+              <p class="text-2xl font-bold text-amber-300">TREASURER</p>
+              <p class="text-lg text-gray-300 mt-3">
+                Managing resources effectively to create an unforgettable
+                experience.
+              </p>
+            </div>
+
+            <div
+              class="anim bg-gray-900 p-6 h-80 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105"
+            >
+              <p class="text-3xl font-semibold text-gray-100">
+                Ansh Katayramal
+              </p>
+              <p class="text-2xl font-bold text-amber-300">CHIEF COORDINATOR</p>
+              <p class="text-lg text-gray-300 mt-3">
+                The backbone of operations, ensuring seamless execution across
+                all events.
+              </p>
+            </div>
           </div>
         </div>
 
-        <!-- Registration Section -->
-        <div class="flex flex-col items-center gap-6 sm:gap-8">
-          <img src="./public/quiz.gif" class="w-32 sm:w-48 md:w-60 lg:w-96 rounded-2xl mt-4 lg:mt-24"
-            alt="Quiz Competition GIF" />
-          <a target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLScy6J9wkVhhGwbGgJFO3Ur6038KtIGaMc0O8dit3vHlJmzAWA/viewform?usp=dialog"
-            class="text-lg sm:text-2xl font-extrabold text-yellow-200 border-4 border-yellow-200 rounded-2xl px-6 sm:px-10 py-3 sm:py-4 text-center transition-all duration-300 hover:scale-110 hover:bg-yellow-200 hover:text-black shadow-lg">
-            🚀 REGISTER NOW!!!
-          </a>
+        <div class="anim text-4xl md:text-5xl mt-14 font-bold text-purple-50">
+          Our Supporting Team Heads
         </div>
-      </div>
-    </section>
 
-    <section id="robo-race" class="w-full pt-32 px-6 lg:px-16">
-      <h1 class="text-5xl font-extrabold text-amber-100">ROBODRIFT</h1>
-      <p class="text-3xl font-extrabold text-indigo-200 mt-4 mb-12">
-        Build, Race & Conquer the Track! 🤖🏁
-      </p>
+        <div class="flex flex-wrap justify-center gap-6 w-full mt-10">
+          <div
+            class="anim bg-gray-900 p-6 py-10 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105"
+          >
+            <p class="text-2xl font-semibold text-gray-100">Om Kadu</p>
+            <p class="text-xl font-bold text-amber-300">
+              Tech & Social Media Team
+            </p>
+          </div>
+          <div
+            class="anim bg-gray-900 p-6 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105"
+          >
+            <p class="text-2xl font-semibold text-violet-200">
+              Swanandi Kshirsagar
+            </p>
 
+            <p class="text-xl font-bold text-amber-300">Sponsorship Team</p>
+          </div>
+
+          <div
+            class="anim bg-gray-900 p-6 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105"
+          >
+            <p class="text-2xl font-semibold text-violet-200">Tanavi Pandao</p>
+            <p class="text-xl font-bold text-amber-300">Promotion Team</p>
+          </div>
+
+          <div
+            class="anim bg-gray-900 p-6 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105"
+          >
+            <p class="text-2xl font-semibold text-gray-100">Vedant Kuralkar</p>
+            <p class="text-xl font-bold text-amber-300">
+              Audit & Registration Team
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="mt-24"></div>
+    </main>
+    <footer class="bg-black text-white py-10 px-6 mt-10">
       <div
-        class="bg-gray-900 text-white border-4 border-yellow-200 rounded-2xl p-10 flex flex-col lg:flex-row justify-between gap-12 shadow-xl">
-        <div class="flex-1 space-y-8">
-          <p class="text-2xl leading-relaxed">
-            Gear up for the ultimate robotics showdown and prove your
-            engineering skills! ⚙️🚀
-          </p>
+        class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left"
+      >
+        <!-- Left Section -->
+        <div class="mb-6 md:mb-0">
+          <h2 class="text-2xl font-bold text-yellow-200">PRAYAS 2K25</h2>
+          <p class="text-gray-400">Turn your Prayas into a victory.</p>
+        </div>
 
-          <!-- Time & Venue -->
-          <div>
-            <p class="text-2xl font-bold text-purple-300">📅 Time & Venue:</p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li><b class="text-purple-300">Time:</b> 10AM - 3 PM</li>
-              <li>
-                <b class="text-purple-300">Venue:</b> Main Building (Ground)
-              </li>
-            </ul>
-          </div>
-
-          <!-- Entry Fee -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
-            <p>
-              <b class="text-purple-300">💰 Entry Fee:</b> ₹200 per team (Max
-              2 members)
-            </p>
-          </div>
-
-          <!-- Rules & Regulations -->
-          <div>
-            <p class="text-2xl font-bold text-purple-300">
-              📜 Rules & Regulations:
-            </p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li>🚫 No test practice allowed on the main arena.</li>
-              <li>⚡ Charging terminals will <b>not</b> be provided.</li>
-              <li>
-                📍 Robots crossing checkpoints & moving off track will restart
-                from the last checkpoint.
-              </li>
-              <li>🔄 No structural modifications during the competition.</li>
-              <li>✋ Max <b>3 hand touches</b> allowed.</li>
-              <li>⏭️ Max <b>2 skips</b>, each adding time penalties.</li>
-              <li>⏱️ The competition follows a <b>time trial system</b>.</li>
-              <li>
-                🏁 The <b>fastest qualifying team</b> will compete in the
-                final.
-              </li>
-              <li>
-                ⚙️ Robots must meet specifications or face disqualification.
-              </li>
-            </ul>
-          </div>
-
-          <!-- Robot Specifications -->
-          <div>
-            <p class="text-2xl font-bold text-purple-300">
-              🤖 Want to bring your own bots? :
-              <a target="_blank" href="./public/Roborace-1.pdf" class="text-amber-200">CLICK HERE</a>
-            </p>
-          </div>
-
-          <!-- Judging Criteria -->
-          <div>
-            <p class="text-2xl font-bold text-purple-300">
-              ⚖️ Judging Criteria:
-            </p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li>⏱️ <b>Time Lap:</b> Faster track completion is better.</li>
-              <li>
-                📍 <b>Checkpoints Cleared:</b> More checkpoints mean a better
-                ranking.
-              </li>
-              <li>⏭️ <b>Skips:</b> More skips result in penalties.</li>
-              <li>
-                ✋ <b>Hand Touches:</b> Excess hand touches add penalties.
-              </li>
-            </ul>
-          </div>
-
-          <!-- Prizes -->
-          <div>
-            <p class="text-2xl font-bold text-purple-300">🏅 Prizes:</p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li>🥇 <b>Winner:</b> ₹3,000 + Certificate</li>
-              <li>🥈 <b>Runner-up:</b> ₹1,500 + Certificate</li>
-            </ul>
-            <p class="text-lg pl-6 text-green-300 font-semibold">
-              🎖 Certificate of Participation for all teams!
-            </p>
-          </div>
-
-          <!-- Event Coordinators -->
-          <div>
-            <p class="text-2xl font-bold text-purple-300">👥 Coordinators:</p>
-            <p class="text-lg pl-6 text-purple-50">
-              📞 Himanshu Jajoo: 86689 49851
-            </p>
-            <p class="text-lg pl-6 text-purple-50">
-              📞 Samyak Khiloshiya: 88883 84870
-            </p>
+        <!-- Middle Section (Quick Links) -->
+        <div class="mb-6 ml-48 md:mb-0">
+          <div class="flex space-x-6">
+            <button data-target="#home" class="nav-btn hover:text-yellow-200">
+              Home
+            </button>
+            <button
+              data-target="#about-us"
+              class="nav-btn hover:text-yellow-200"
+            >
+              About
+            </button>
+            <button data-target="#events" class="nav-btn hover:text-yellow-200">
+              Events
+            </button>
           </div>
         </div>
 
-        <!-- Registration Section -->
-        <div class="flex flex-col items-center gap-8 w-full lg:w-auto">
-          <img src="./public/roborace.gif" class="w-48 sm:w-64 rounded-2xl mt-10 lg:mt-24" alt="Robo Race GIF" />
-          <a target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeJm6_mkyM7Sp3s45P2A0eJDM0tqMjOdKRVAIN3p9hL-HOLNQ/viewform"
-            class="text-2xl font-extrabold text-yellow-200 border-4 border-yellow-200 rounded-2xl px-10 py-4 text-center transition-all duration-300 hover:scale-110 hover:bg-yellow-200 hover:text-black shadow-lg">
-            🚀 REGISTER NOW!!!
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="circuit-fixer" class="w-full pt-40 px-6 lg:px-16">
-      <h1 class="text-5xl font-extrabold text-amber-100 text-center lg:text-left">
-        CIRCUIT FIXER
-      </h1>
-      <p class="text-3xl font-extrabold text-indigo-200 text-center lg:text-left mb-10">
-        Unleash The Engineer Within
-      </p>
-
-      <div class="text-white border-4 border-yellow-200 rounded-2xl p-10 shadow-xl flex flex-col lg:flex-row gap-10">
-        <!-- Left Side Content -->
-        <div class="flex-1 space-y-6">
-          <p class="text-2xl">
-            Solve MCQs, design circuits, and claim your victory! 🚀
-          </p>
-
-          <!-- Rounds -->
-          <div>
-            <p class="text-xl font-bold text-purple-300">💡 Rounds:</p>
-            <ul class="list-disc pl-5 text-xl space-y-1">
-              <li>Circuit Quiz</li>
-              <li>Circuit Builder</li>
-            </ul>
-          </div>
-
-          <!-- Entry Fee & Max Entries -->
+        <!-- Right Section (Location) -->
+        <a
+          target="_blank"
+          href="https://maps.app.goo.gl/JYbyBy8U3B9BZ3cA9"
+          class="flex items-center text-center md:text-left"
+        >
+          <img src="./public/location.png" class="w-8 h-8 mr-3" />
           <div class="text-lg">
-            <p>
-              <span class="font-bold text-purple-300">💰 Entry Fee:</span>
-              ₹200 per Team
-            </p>
-            <p>
-              <span class="font-bold text-purple-300">🔢 Max Entries:</span>
-              50 Teams
-            </p>
+            Government Polytechnic, Amravati. <br />
+            VMV Road, Gadge Nagar, Amravati-444603
           </div>
-
-          <!-- Time & Venue -->
-          <div>
-            <p class="text-2xl font-bold text-purple-300">📅 Time & Venue:</p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li><b class="text-purple-300">Time:</b> 10AM - 3 PM</li>
-              <li>
-                <span class="font-bold text-purple-300">Venue:</span>
-                classrooms 201, 204 (Extc department)
-              </li>
-            </ul>
-          </div>
-
-          <!-- Rules -->
-          <div>
-            <p class="text-xl font-bold text-purple-300">
-              🔴 Rules & Guidelines:
-            </p>
-            <ul class="list-disc pl-5 text-xl space-y-1">
-              <li>Participants must compete in teams of 2.</li>
-              <li>Use of Smartphones is not allowed.</li>
-              <li>Time constraints will be strictly followed.</li>
-            </ul>
-          </div>
-
-          <!-- Prizes -->
-          <div>
-            <p class="text-xl font-bold text-purple-300">🏅 Prizes:</p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li>🥇 <b>Winner:</b> ₹3,000 + Certificate</li>
-              <li>🥈 <b>Runner-up:</b> ₹1,500 + Certificate</li>
-            </ul>
-            <p class="text-lg pl-6 text-green-300 font-semibold">
-              🎖 Certificate of Participation for all players!
-            </p>
-          </div>
-
-          <!-- Coordinators -->
-          <div>
-            <p class="text-xl font-bold text-purple-300">👥 Coordinators:</p>
-            <p class="text-lg pl-6 text-purple-50">
-              📞 Yadnyesh Kuware: 95032 83715
-            </p>
-            <p class="text-lg pl-6 text-purple-50">
-              📞 Jasbir-Singh Monga: 95189 81821
-            </p>
-          </div>
-        </div>
-
-        <!-- Right Side (Image + Register Button) -->
-        <div class="flex flex-col items-center gap-6 w-full lg:w-auto">
-          <img src="./public/circuit.gif" class="w-40 sm:w-56 rounded-2xl mt-6 lg:mt-24" alt="Circuit Fixer GIF" />
-          <a target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSejty3Hnaj3ef2-xgDaZBWck0dpEzHE5eX-mZ0uWFf_kRJO3g/viewform"
-            class="text-2xl font-extrabold text-yellow-200 border-4 border-yellow-200 rounded-2xl px-10 py-4 text-center transition-all duration-300 hover:scale-110 hover:bg-yellow-200 hover:text-black shadow-lg">
-            REGISTER NOW!!!
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="lan-gaming" class="w-full pt-32 px-6 lg:px-16">
-      <h1 class="text-5xl font-extrabold text-amber-100">E-SPORTS</h1>
-      <p class="text-3xl font-extrabold text-indigo-200 mt-4 mb-12">
-        Battle It Out, Dominate the Arena & Be the Champion! 🎮🔥
-      </p>
-
-      <div
-        class="bg-gray-900 text-white border-4 border-yellow-200 rounded-2xl p-10 flex flex-col lg:flex-row justify-between gap-12 shadow-xl">
-        <div class="flex-1 space-y-8">
-          <p class="text-2xl leading-relaxed">
-            Join the ultimate gaming showdown and prove your skills in an
-            electrifying Virtual battle! 🎯🕹️
-          </p>
-
-          <!-- Time & Venue -->
-          <div>
-            <p class="text-2xl font-bold text-purple-300">📅 Time & Venue:</p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li><b class="text-purple-300">Time:</b> 10AM - 3 PM</li>
-              <li>
-                <span class="font-bold text-purple-300">Venue:</span> CL3, CL4
-                & CL6 (computer lab)
-              </li>
-            </ul>
-          </div>
-
-          <!-- Games & Format -->
-          <div>
-            <p class="text-xl font-bold text-purple-300">
-              🎮 Games & Format:
-            </p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li>⚔️ <b>Game 1:</b> BGMI</li>
-              <li>🚗 <b>Game 2:</b> Free Fire</li>
-            </ul>
-          </div>
-
-          <!-- Rules & Regulations -->
-          <div>
-            <p class="text-xl font-bold text-purple-300">
-              📜 Rules & Regulations:
-            </p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li>👥 Each team must register as a squad.</li>
-              <li>💰 ₹200 registration fee per squad.</li>
-              <li>⏳ Squads must report 20 minutes before their match.</li>
-              <li>🏆 Winners will be announced at the end of each round.</li>
-              <li>
-                🚫 Arguing with umpires will result in disqualification of the
-                entire squad.
-              </li>
-              <li>📜 Match rules will be explained before the game.</li>
-              <!-- <li>🎯 Points matter the most, not just winning the match.</li> -->
-              <!-- <li>🔫 1 point per kill, with additional points based on final position.</li> -->
-              <li>
-                ❌ Unfair gameplay (hacking, exploits) leads to immediate
-                disqualification.
-              </li>
-            </ul>
-          </div>
-
-          <div class="text-lg">
-            <p>
-              <span class="font-bold text-purple-300">💰 Entry Fee:</span>
-              ₹200 per squad
-            </p>
-            <p>
-              <span class="font-bold text-purple-300">🔢 Max Entries:</span>
-              Free Fire: 25 squads BGMI: 50 squads
-            </p>
-          </div>
-          <!-- Prizes -->
-          <div>
-            <p class="text-xl font-bold text-purple-300">
-              🏅 Prizes (Per Game):
-            </p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li>🥇 <b>Winner:</b> ₹2,500 + Certificate</li>
-              <li>🥈 <b>Runner-up:</b> ₹1,500 + Certificate</li>
-            </ul>
-            <p class="text-lg pl-6 text-green-300 font-semibold">
-              🎖 Certificate of Participation for all players!
-            </p>
-          </div>
-
-          <!-- Event Coordinators -->
-          <div>
-            <p class="text-xl font-bold text-purple-300">👥 Coordinators:</p>
-            <p class="text-lg pl-6 text-purple-50">
-              📞 Parth Dhawase: 97306 61809
-            </p>
-            <p class="text-lg pl-6 text-purple-50">
-              📞 Aaditya Bhangale: 87889 26772
-            </p>
-          </div>
-        </div>
-
-        <!-- Registration Section -->
-        <div class="flex flex-col items-center gap-8">
-          <img src="./public/game.gif" class="w-32 sm:w-72 rounded-2xl mt-24" alt="CodeQuest GIF" />
-
-          <a target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeRhXRhLqpHEUl-wfvlGs5IV1ljTIa-fJcWptAEHBBxFsIJNA/viewform?usp=dialog"
-            class="text-2xl font-extrabold text-yellow-200 border-4 border-yellow-200 rounded-2xl px-10 py-4 text-center transition-all duration-300 hover:scale-110 hover:bg-yellow-200 hover:text-black shadow-lg">
-            🚀 REGISTER NOW!!!
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="poster-competition" class="w-full pt-32 px-6 lg:px-16">
-      <h1 class="text-5xl font-extrabold text-amber-100 text-center lg:text-left">
-        TECHNICAL POSTER COMPETITION
-      </h1>
-      <p class="text-3xl font-extrabold text-indigo-200 text-center lg:text-left mt-4 mb-12">
-        Express Creativity, Inspire Change & Win Big! 🖌️🏆
-      </p>
-
-      <div
-        class="bg-gray-900 text-white border-4 border-yellow-200 rounded-2xl p-10 shadow-xl flex flex-col lg:flex-row gap-12">
-        <!-- Left Side Content -->
-        <div class="flex-1 space-y-6">
-          <p class="text-2xl leading-relaxed">
-            Unleash your artistic genius and bring your vision to life in this
-            exciting Poster Competition! 🎨✨
-          </p>
-
-          <!-- Theme & Guidelines -->
-          <div>
-            <p class="text-xl font-bold text-purple-300">🖼️ Theme:</p>
-            <p class="text-lg pl-6 text-yellow-200">
-              "AI in Education System or healthcare system."
-            </p>
-            <p class="text-lg pl-6 text-yellow-200">"Green Technology"</p>
-          </div>
-
-          <div>
-            <p class="text-xl font-bold text-purple-300">
-              📜 Rules & Guidelines:
-            </p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <!-- <li>🎨 Posters can be digital or hand-drawn.</li> -->
-              <li>📏 size: A2 (16.5 x 23.4 inches).</li>
-              <li>👥 At max 2 participants per group.</li>
-              <li>
-                🕒 Poster will be judged on the basis of relevance to the
-                theme, originality and creativity.
-              </li>
-              <li>🏆 Bring your own material for displaying poster.</li>
-              <li>
-                🚫 Plagiarism or copying existing designs will result in
-                disqualification.
-              </li>
-              <li>🏆 Judges' decisions will be final.</li>
-            </ul>
-          </div>
-
-          <!-- Entry Fee & Max Entries -->
-          <div class="text-lg">
-            <p>
-              <span class="font-bold text-purple-300">💰 Entry Fee:</span>
-              ₹200 per Team
-            </p>
-            <p>
-              <span class="font-bold text-purple-300">🔢 Max Entries:</span>
-              100 Teams
-            </p>
-          </div>
-
-          <!-- Time & Venue -->
-          <div>
-            <p class="text-2xl font-bold text-purple-300">📅 Time & Venue:</p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li>
-                <span class="font-bold text-purple-300">Time:</span> 10 AM - 3
-                PM
-              </li>
-              <li>
-                <span class="font-bold text-purple-300">Venue:</span> Drawing
-                Hall (Civil Dept.)
-              </li>
-            </ul>
-          </div>
-
-          <!-- Prizes -->
-          <div>
-            <p class="text-xl font-bold text-purple-300">
-              🏅 Prizes (Per Category):
-            </p>
-            <ul class="list-disc pl-6 text-lg space-y-1">
-              <li>🥇 <b>Winner:</b> ₹2,100 + Certificate</li>
-              <li>🥈 <b>Runner-up:</b> ₹1,100 + Certificate</li>
-            </ul>
-            <p class="text-lg pl-6 text-green-300 font-semibold">
-              🎖 Certificate of Participation for all participants!
-            </p>
-          </div>
-
-          <!-- Coordinators -->
-          <div>
-            <p class="text-xl font-bold text-purple-300">👥 Coordinators:</p>
-            <p class="text-lg pl-6 text-purple-50">
-              📞 Chakradhar Panjarkar: 70579 82574
-            </p>
-            <p class="text-lg pl-6 text-purple-50">
-              📞 Manisha Raut: 80107 08304
-            </p>
-          </div>
-        </div>
-
-        <!-- Right Side (Image + Register Button) -->
-        <div class="flex flex-col items-center gap-6 w-full lg:w-auto">
-          <img src="./public/poster.gif" class="w-40 sm:w-56 rounded-2xl mt-6 lg:mt-24" alt="Poster Competition GIF" />
-          <a target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdjBoiOVrILoJ1e5pYI0RkRBrAlg7skzzwJpfSyDZ0e-3VTmA/viewform?usp=header"
-            class="text-2xl font-extrabold text-yellow-200 border-4 border-yellow-200 rounded-2xl px-10 py-4 text-center transition-all duration-300 hover:scale-110 hover:bg-yellow-200 hover:text-black shadow-lg">
-            🎨 REGISTER NOW!!!
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="about-us" class="w-full text-center pt-36 px-6 md:px-12">
-      <h1 class="anim text-6xl mb-5 md:text-7xl font-extrabold text-start text-amber-200">
-        About Us
-      </h1>
-      <p class="anim text-2xl md:text-3xl mt-6 text-gray-300 text-start max-w-4xl">
-        PRAYAS 2K25 is a student-driven <b>technical fest</b> organized by
-        <span class="text-amber-300 font-bold">Government Polytechnic Amravati</span>. A celebration of <b>innovation,
-          technology, and creativity</b>,
-        built <b>by students, for students</b>! 🚀
-      </p>
-
-      <div class="anim text-4xl md:text-5xl mt-14 font-bold text-purple-50">
-        Meet Our Core Team
+        </a>
       </div>
 
-      <div class="flex flex-col items-center justify-center min-h-screen px-4 space-y-6">
-        <!-- Top Row: 3 Members -->
-        <div class="flex flex-wrap justify-center gap-6 w-full">
-          <div
-            class="anim bg-gray-900 p-6 h-80 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105">
-            <p class="text-3xl font-semibold text-gray-100">Parth Warkari</p>
-            <p class="text-2xl font-bold text-amber-300">VICE-PRESIDENT</p>
-            <p class="text-lg text-gray-300 mt-3">
-              Driving innovation and ensuring smooth execution of PRAYAS 2K25.
-            </p>
-          </div>
-
-          <div
-            class="anim bg-gray-900 p-6 h-80 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105">
-            <p class="text-3xl font-semibold text-gray-100">Khuteja Sheikh</p>
-            <p class="text-2xl font-bold text-amber-300">PRESIDENT</p>
-            <p class="text-lg text-gray-300 mt-3">
-              The visionary leading PRAYAS 2K25 to success, turning ideas into
-              reality.
-            </p>
-          </div>
-
-          <div
-            class="anim bg-gray-900 p-6 h-80 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105">
-            <p class="text-3xl font-semibold text-gray-100">
-              Pushpak Thakare
-            </p>
-            <p class="text-2xl font-bold text-amber-300">VICE-PRESIDENT</p>
-            <p class="text-lg text-gray-300 mt-3">
-              Empowering teams, fostering collaboration, and ensuring
-              excellence.
-            </p>
-          </div>
-        </div>
-
-        <!-- Bottom Row: 2 Members (Centered) -->
-        <div class="flex flex-wrap justify-center gap-6 w-full">
-          <div
-            class="anim bg-gray-900 p-6 h-80 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105">
-            <p class="text-3xl font-semibold text-gray-100">
-              Atharva Bhagwat
-            </p>
-            <p class="text-2xl font-bold text-amber-300">TREASURER</p>
-            <p class="text-lg text-gray-300 mt-3">
-              Managing resources effectively to create an unforgettable
-              experience.
-            </p>
-          </div>
-
-          <div
-            class="anim bg-gray-900 p-6 h-80 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105">
-            <p class="text-3xl font-semibold text-gray-100">
-              Ansh Katayramal
-            </p>
-            <p class="text-2xl font-bold text-amber-300">CHIEF COORDINATOR</p>
-            <p class="text-lg text-gray-300 mt-3">
-              The backbone of operations, ensuring seamless execution across
-              all events.
-            </p>
-          </div>
+      <!-- Contact & Social Links -->
+      <div class="text-center mt-10">
+        <div class="text-xl font-bold mb-3">Contact Us</div>
+        <div class="flex justify-center space-x-6 text-2xl">
+          <a
+            target="_blank"
+            href="https://www.instagram.com/prayas_2k25/"
+            class="hover:text-yellow-200"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <!-- <a target="_blank" href="#" class="hover:text-yellow-200"><i class="fab fa-linkedin"></i></a> -->
         </div>
       </div>
 
-      <div class="anim text-4xl md:text-5xl mt-14 font-bold text-purple-50">
-        Our Supporting Team Heads
+      <!-- Bottom Line -->
+      <div class="text-center text-gray-500 text-sm mt-6">
+        &copy; 2025 Prayas. All rights reserved.
       </div>
+      <span class="text-gray-950">swan</span>
+    </footer>
 
-      <div class="flex flex-wrap justify-center gap-6 w-full mt-10">
-        <div
-          class="anim bg-gray-900 p-6 py-10 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105">
-          <p class="text-2xl font-semibold text-gray-100">Om Kadu</p>
-          <p class="text-xl font-bold text-amber-300">Tech & Social Media Team</p>
-        </div>
-        <div
-          class="anim bg-gray-900 p-6 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105">
-          <p class="text-2xl font-semibold text-violet-200">Swanandi Kshirsagar</p>
-
-          <p class="text-xl font-bold text-amber-300">Sponsorship Team</p>
-        </div>
-
-        <div
-          class="anim bg-gray-900 p-6 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105">
-          <p class="text-2xl font-semibold text-violet-200">Tanavi Pandao</p>
-          <p class="text-xl font-bold text-amber-300">Promotion Team</p>
-        </div>
-
-        <div
-          class="anim bg-gray-900 p-6 w-80 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center transition-transform duration-300 hover:scale-105">
-          <p class="text-2xl font-semibold text-gray-100">Hani Khan</p>
-          <p class="text-xl font-bold text-amber-300">Audit & Registration Team</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="mt-24"></div>
-  </main>
-  <footer class="bg-black text-white py-10 px-6 mt-10">
-    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-      <!-- Left Section -->
-      <div class="mb-6 md:mb-0">
-        <h2 class="text-2xl font-bold text-yellow-200">PRAYAS 2K25</h2>
-        <p class="text-gray-400">Turn your Prayas into a victory.</p>
-      </div>
-
-      <!-- Middle Section (Quick Links) -->
-      <div class="mb-6 ml-48 md:mb-0">
-        <div class="flex space-x-6">
-          <button data-target="#home" class="nav-btn hover:text-yellow-200">
-            Home
-          </button>
-          <button data-target="#about-us" class="nav-btn hover:text-yellow-200">
-            About
-          </button>
-          <button data-target="#events" class="nav-btn hover:text-yellow-200">
-            Events
-          </button>
-        </div>
-      </div>
-
-      <!-- Right Section (Location) -->
-      <a target="_blank" href="https://maps.app.goo.gl/JYbyBy8U3B9BZ3cA9"
-        class="flex items-center text-center md:text-left">
-        <img src="./public/location.png" class="w-8 h-8 mr-3" />
-        <div class="text-lg">
-          Government Polytechnic, Amravati. <br />
-          VMV Road, Gadge Nagar, Amravati-444603
-        </div>
-      </a>
-    </div>
-
-    <!-- Contact & Social Links -->
-    <div class="text-center mt-10">
-      <div class="text-xl font-bold mb-3">Contact Us</div>
-      <div class="flex justify-center space-x-6 text-2xl">
-        <a target="_blank" href="https://www.instagram.com/prayas_2k25/" class="hover:text-yellow-200"><i
-            class="fab fa-instagram"></i></a>
-        <!-- <a target="_blank" href="#" class="hover:text-yellow-200"><i class="fab fa-linkedin"></i></a> -->
-      </div>
-    </div>
-
-    <!-- Bottom Line -->
-    <div class="text-center text-gray-500 text-sm mt-6">
-      &copy; 2025 Prayas. All rights reserved.
-    </div>
-    <span class="text-gray-950">swan</span>
-  </footer>
-
-  <!-- GSAP for Animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="./src/main.js"></script>
-  <!-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> -->
-</body>
-
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="./src/main.js"></script>
+    <!-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> -->
+  </body>
 </html>
